@@ -5,6 +5,7 @@ from odoo.addons.website.controllers.main import Website
 from odoo import http
 from odoo.http import request
 
+
 def get_home_info():
     product = request.env['product.template'].search([('x_type', '=', 'complete_product')])
     customer = request.env['product.template'].search([('x_type', '=', 'customer')])
