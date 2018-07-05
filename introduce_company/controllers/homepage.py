@@ -45,8 +45,20 @@ class Homepage(Website):
         return http.request.render('introduce_company.homepage', get_home_info())
 
     @http.route('/vi', type='http', auth='public', method='POST', website=True)
-    def get_homepage(self, is_vi=False):
+    def get_homepage(self):
         info = get_home_info()
         info.update({'vi': True})
         return request.env['ir.ui.view'].render_template('introduce_company.homepage', info)
 
+    @http.route('/question', website=True, type='json', auth='public', methods=['POST'])
+    def create_question(self, **kw):
+        vals = {
+            'name': kw['kwargs']['name'],
+            'phone': kw['kwargs']['phone'],
+            'email': kw['kwargs']['email'],
+            'question': kw['kwargs']['question'],
+        }
+        check = request.env['introduce.question'].sudo().create(vals)
+        if check:
+            return {'success': 1}
+        return {'success': 0}

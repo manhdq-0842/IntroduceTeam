@@ -30,6 +30,7 @@
         'views/component.xml',
         'views/custom.xml',
         'views/experience.xml',
+        'views/question.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

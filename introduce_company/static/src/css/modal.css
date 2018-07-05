@@ -3,11 +3,11 @@
     text-align: center;
 }
 
-.register-login .modal-dialog {
+.modal-question .modal-dialog {
     width: 650px;
 }
 
-.register-login .inner-addon {
+.modal-question .inner-addon {
     position: relative;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
@@ -16,24 +16,24 @@
     height: 40px;
 }
 
-.register-login .inner-addon .fa {
+.modal-question .inner-addon .fa {
     position: absolute;
     padding: 10px;
     pointer-events: none;
 }
 
-.register-login .left-addon .fa {
+.modal-question .left-addon .fa {
     left: 0;
     color: #cccccc;
     font-size: 16px;
     height: 100%;
 }
 
-.register-login input {
+.modal-question input, .footer-modal button {
     height: 42px !important;
 }
 
-.register-login input, .register-login textarea {
+.modal-question input, .modal-question textarea {
     padding-left: 30px;
     object-fit: contain;
     border-radius: 4px;
@@ -46,52 +46,52 @@
     font-size: 16px;
 }
 
-.register-login input::placeholder, .register-login textarea::placeholder {
+.modal-question input::placeholder, .modal-question textarea::placeholder {
     color: #888888;
 }
 
-.register-login .header {
+.modal-question .header {
     text-align: center;
     margin-bottom: 60px;
     margin-top: 15px;
 }
 
-.register-login .header span {
+.modal-question .header span {
     width: 100%;
     float: left;
     object-fit: contain;
 }
 
-.register-login .header .title {
+.modal-question .header .title {
     font-size: 20px;
     font-weight: bold;
     color: #3a3d3f;
 }
 
-.register-login .header .description {
+.modal-question .header .description {
     font-size: 14px;
     text-align: center;
     color: #666666;
 }
 
-.register-login .body {
+.modal-question .body {
     margin: 0 40px;
     border-bottom: 1px dotted #979797;
     padding-bottom: 30px;
 }
 
-.register-login .body .name {
+.modal-question .body .name {
     font-size: 20px;
     color: #333333 !important;
     vertical-align: top;
 }
 
-.register-login .footer-modal {
+.modal-question .footer-modal {
     text-align: center;
     margin: 15px auto 30px;
 }
 
-.register-login .footer-modal button {
+.modal-question .footer-modal button {
     padding: 12px;
     text-transform: uppercase;
     font-size: 14px;
@@ -111,9 +111,13 @@ table td {
     width: 150px;
 }
 
-.register-login .footer-modal button:hover {
-   background-color: #388E3C;
+.modal-question .footer-modal button:hover {
+    background-color: #388E3C;
     color: #ffffff;
+}
+
+.modal-question .footer-modal button.close {
+    margin-right: 15px!important;
 }
 
 @media (max-width: 991px) {
@@ -121,11 +125,11 @@ table td {
         vertical-align: top;
     }
 
-    .register-login .modal-dialog {
+    .modal-question .modal-dialog {
         width: auto;
     }
 
-    .register-login .body {
+    .modal-question .body {
         margin: 0 5px;
     }
 
@@ -152,7 +156,7 @@ table td {
         width: 100px;
     }
 
-    .register-login .body .name {
+    .modal-question .body .name {
         font-size: 18px;
     }
 }
@@ -162,7 +166,7 @@ table td {
         width: 60px;
     }
 
-    .register-login .body .name {
+    .modal-question .body .name {
         font-size: 14px;
     }
 }

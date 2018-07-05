@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <data>
+        <record id="question_form" model="ir.ui.view">
+            <field name="name">introduce.question.form</field>
+            <field name="model">introduce.question</field>
+            <field name="arch" type="xml">
+                <form string="question">
+                    <sheet>
+                        <group>
+                            <field name="name" placeholder="Name"/>
+                            <field name="phone" placeholder="Phone"/>
+                            <field name="email" placeholder="Email"/>
+                        </group>
+                        <group>
+                            <field name="question" placeholder="Question"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="question_action">
+            <field name="name">Question</field>
+            <field name="res_model">introduce.question</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="main_question_menu" name="Question"/>
+        <menuitem id="question_menu" name="Question" parent="main_question_menu" action="question_action"/>
+
+    </data>
+</odoo>

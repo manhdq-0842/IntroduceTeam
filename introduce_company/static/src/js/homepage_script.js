@@ -1,5 +1,6 @@
 odoo.define("introduce_company.homepage", function (require) {
     'use strict';
+    var ajax = require('web.ajax');
     require("web.dom_ready");
 
     var odooHeader = $('#oe_main_menu_navbar').length;
@@ -68,6 +69,27 @@ odoo.define("introduce_company.homepage", function (require) {
         return false;
     });
 
+    $('#btn_send').click(function () {
+        var name = $('#contact_name').val();
+        var phone = $('#contact_phone').val();
+        var email = $('#contact_email').val();
+        var question = $('#contact_question').val();
+
+        ajax.jsonRpc('/question', 'call', {
+            'kwargs': {
+                'name': name,
+                'phone': phone,
+                'email': email,
+                'question': question
+            }
+        }).then(function (data) {
+            if (data['success']){
+                alert("da thanh cong")
+            }
+        });
+    });
+
+    //
     $('.navbar-toggle-custom').click(function () {
         var menuHeader = menuUl.css('display');
         if (menuHeader === "none") {
@@ -118,6 +140,7 @@ odoo.define("introduce_company.homepage", function (require) {
         }
     });
 
+    //homepage is color
     $('#menu-item-parent:nth-child(1)').addClass('active');
 
     $(document).on("scroll", onScroll1);
@@ -135,7 +158,7 @@ odoo.define("introduce_company.homepage", function (require) {
         var $target = $(target);
         var heightHeader = $();
         $('html, body').stop().animate({
-            'scrollTop': $target.offset().top - 96 -checkOdooHeader
+            'scrollTop': $target.offset().top - 96 - checkOdooHeader
         }, 800, 'swing', function () {
             // window.location.hash = target;
             $(document).on("scroll", onScroll1());
@@ -163,8 +186,8 @@ odoo.define("introduce_company.homepage", function (require) {
         });
     });
 
-     //modal login
-    var $modalLogin = $('#modal-login');
+    //modal login
+    var $modalLogin = $('#modal-question');
     $('#contact-btn').click(function () {
         $modalLogin.modal('toggle');
     });

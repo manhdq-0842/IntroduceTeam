@@ -478,8 +478,14 @@
                 </div>
 
                 <div id="Advisory">
-                    <div class="benefit-title">Hãy liên hệ với chúng tôi để được tư vẫn miễn phí!</div>
-                    <button id="contact-btn">Liên hệ ngay</button>
+                    <div class="benefit-title">
+                        <t t-if="vi">Hãy liên hệ với chúng tôi để được tư vẫn miễn phí!</t>
+                        <t t-else="">Please contact us for a free quote!</t>
+                    </div>
+                    <button id="contact-btn">
+                        <t t-if="vi">Liên hệ ngay</t>
+                        <t t-else="">Contact now</t>
+                    </button>
                 </div>
 
                 <!--pointer-->
@@ -492,56 +498,69 @@
                 </t>
 
                 <!--popup-->
-                <div class="modal fade register-login in" role="dialog" id="modal-login"
+                <div class="modal fade modal-question in" role="dialog" id="modal-question"
                      aria-hidden="false">
                     <div class="modal-dialog">
                         <div class="modal-content">
-                            <div class="modal-body">
-                                <button type="button" class="close" data-dismiss="modal">
+                            <div class="modal-body" t-attf-class="form-group">
+                                <button type="button" class="close" data-dismiss="modal" style="margin-right: 15px;">
                                     <img src="/introduce_company/static/src/img/shape.svg" alt=""/>
                                 </button>
                                 <input type="hidden" name="csrf_token"
-                                       value="aa94cba069640b8d59814ca46dbd1eade9530878o1525491195"/>
+                                       value=""/>
                                 <input type="hidden" name="redirect" value="/"/>
                                 <div class="row header">
-                                    <span class="title">LIÊN HỆ</span>
+                                    <span class="title">
+                                        <t t-if="vi"> LIÊN HỆ VỚI CHÚNG TÔI</t>
+                                        <t t-else="">Contact Us</t>
+                                    </span>
                                 </div>
                                 <div class="row body">
                                     <table style="width: 100%;">
                                         <tr>
-                                            <td class="name td-first">Tên của bạn:</td>
+                                            <td class="name td-first">
+                                                <t t-if="vi"> Tên của bạn:</t>
+                                                <t t-else=""> Name:</t>
+                                            </td>
                                             <td>
-                                                <input class="form-control" name="contact_name" required="True"
+                                                <input id='contact_name' class="form-control" name="contact_name" required="True"
                                                        type="text" placeholder="Nguyen Van A"/>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="name">Điện thoại:</td>
+                                            <td class="name">
+                                                <t t-if="vi">Điện thoại:</t>
+                                                <t t-else="">Phone:</t>
+                                            </td>
                                             <td>
-                                                <input class="form-control" name="contact_phone" required="True"
+                                                <input id='contact_phone' class="form-control" name="contact_phone" required="True"
                                                        type="text" placeholder="0123456789"/>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td class="name">Email:</td>
                                             <td>
-                                                <input class="form-control" name="contact_email" required="True"
+                                                <input id='contact_email' class="form-control" name="contact_email" required="True"
                                                        type="text" placeholder="123@gmail.com"/>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="name">Câu hỏi của bạn:</td>
+                                            <td class="name">
+                                                <t t-if="vi">Câu hỏi:</t>
+                                                <t t-else="">Question:</t>
+                                            </td>
                                             <td>
-                                                <textarea class="form-control" name="description"
-                                                          style="min-height: 120px;resize: vertical;" required="True"></textarea>
+                                                <textarea id='contact_question' class="form-control" name="description"
+                                                          style="min-height: 120px;resize: vertical;" required="True"/>
                                             </td>
                                         </tr>
                                     </table>
                                 </div>
                                 <div class="row footer-modal">
                                     <div class="col-sm-6 col-md-6 col-sm-offset-3 col-md-offset-3">
-                                        <button id="btn_send">
-                                            Gửi
+                                        <button id="btn_send" class="form-control" type="submit">
+                                            <t t-if="vi">Gửi</t>
+                                            <t t-else="">Submit</t>
                                         </button>
                                     </div>
                                 </div>
