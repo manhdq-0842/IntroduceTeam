@@ -2,6 +2,7 @@
 
 <odoo>
     <data>
+        <!--question-->
         <record id="question_form" model="ir.ui.view">
             <field name="name">introduce.question.form</field>
             <field name="model">introduce.question</field>
@@ -30,6 +31,27 @@
 
         <menuitem id="main_question_menu" name="Question"/>
         <menuitem id="question_menu" name="Question" parent="main_question_menu" action="question_action"/>
+
+
+        <!--Email-->
+        <record id="email_tree" model="ir.ui.view">
+            <field name="name">introduce.email.tree</field>
+            <field name="model">introduce.email</field>
+            <field name="arch" type="xml">
+                <tree string="Idea list">
+                    <field name="email" placeholder="Email"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="email_action">
+            <field name="name">Email</field>
+            <field name="res_model">introduce.email</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="email_menu" name="Email" parent="main_question_menu" action="email_action"/>
 
     </data>
 </odoo>

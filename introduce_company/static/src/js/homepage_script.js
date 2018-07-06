@@ -23,6 +23,7 @@ odoo.define("introduce_company.homepage", function (require) {
         $('.menu_main').css('top', '44');
     }
 
+    //check scroll page
     $(window).scroll(function () {
         var header = $('.header');
         var height = $(window).scrollTop();
@@ -42,7 +43,7 @@ odoo.define("introduce_company.homepage", function (require) {
         }
 
         if (height >= 800) {
-            //tang tu 1,2,3... đen het
+            // 1,2,3... to end
             var $countValue = $(".count-value");
             if (!$countValue.hasClass('check-width')) {
                 $('.count').each(function () {
@@ -69,27 +70,62 @@ odoo.define("introduce_company.homepage", function (require) {
         return false;
     });
 
+    //turn on modal question
+    var $modalQuestion = $('#modal-question');
+    $('#contact-btn').click(function () {
+        $modalQuestion.modal('toggle');
+    });
+
+
+    //form question
     $('#btn_send').click(function () {
         var name = $('#contact_name').val();
         var phone = $('#contact_phone').val();
         var email = $('#contact_email').val();
         var question = $('#contact_question').val();
+        var checkemail = checkEmail(email, "question");
+        var checkphone = phonenumber(phone);
+        if (checkemail && checkphone) {
+            ajax.jsonRpc('/question', 'call', {
+                'kwargs': {
+                    'name': name,
+                    'phone': phone,
+                    'email': email,
+                    'question': question
+                }
+            }).then(function (data) {
+                if (data['success']) {
+                    // turn off modal question turn on modal success
+                    var $modalSuccess = $('#modal-success');
+                    $modalQuestion.modal('toggle');
+                    $modalSuccess.modal('toggle');
+                }
+            });
+        } else {
 
-        ajax.jsonRpc('/question', 'call', {
-            'kwargs': {
-                'name': name,
-                'phone': phone,
-                'email': email,
-                'question': question
-            }
-        }).then(function (data) {
-            if (data['success']){
-                alert("da thanh cong")
-            }
-        });
+        }
     });
 
-    //
+    // footer email
+    $('#footer_subscribe').click(function (e) {
+        e.preventDefault();
+        var email = $('#footer_email').val();
+        if (checkEmail(email, "footer")) {
+            ajax.jsonRpc('/email', 'call', {
+                'kwargs': {
+                    'email': email
+                }
+            }).then(function (data) {
+                if (data['success']) {
+                    $('.done-tick').addClass('hidden');
+
+                }
+            });
+        }
+
+    });
+
+    //show menu mobi-header
     $('.navbar-toggle-custom').click(function () {
         var menuHeader = menuUl.css('display');
         if (menuHeader === "none") {
@@ -128,7 +164,6 @@ odoo.define("introduce_company.homepage", function (require) {
     //experience and parameter
     $('.count-title').each(function () {
         var testText = $(this).text();
-        console.log(testText);
         if ((testText.trim() === "EXPERIENCE")) {
             $(this).parent().find('.exp-value').removeClass('hidden');
 
@@ -156,7 +191,6 @@ odoo.define("introduce_company.homepage", function (require) {
 
         var target = this.hash;
         var $target = $(target);
-        var heightHeader = $();
         $('html, body').stop().animate({
             'scrollTop': $target.offset().top - 96 - checkOdooHeader
         }, 800, 'swing', function () {
@@ -186,18 +220,45 @@ odoo.define("introduce_company.homepage", function (require) {
         });
     });
 
-    //modal login
-    var $modalLogin = $('#modal-question');
-    $('#contact-btn').click(function () {
-        $modalLogin.modal('toggle');
-    });
-
     //click change my language => click odoo language
     $('.js_change_lang').onclick(function () {
         $('.js_language_selector .js_change_lang').click()
     });
 
 });
+
+function checkEmail(inputtxt, type) {
+    var filter = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
+
+    if (filter.test(inputtxt)) {
+        if (type === "question") {
+            $("#contact_email").removeClass('error-question');
+        } else {
+            $('#footer_email').removeClass('boder-footer-email');
+        }
+        return true;
+    } else {
+        if (type === "question") {
+            $("#contact_email").addClass('error-question');
+        } else {
+            $('#footer_email').addClass('boder-footer-email');
+        }
+        return false;
+    }
+}
+
+//check phone-number
+function phonenumber(inputtxt) {
+    var phoneno = /^([(]?)?([+]?)?([0-9]{1,2})?([)]?)?([0-9]{9,10})$/;
+    if (inputtxt.match(phoneno)) {
+        $('#contact_phone').removeClass('error-question');
+        return true;
+    }
+    else {
+        $('#contact_phone').addClass('error-question');
+        return false;
+    }
+}
 
 function onScroll1() {
     var scrollPos = $(document).scrollTop() + 130;

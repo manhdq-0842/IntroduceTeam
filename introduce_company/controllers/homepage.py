@@ -62,3 +62,13 @@ class Homepage(Website):
         if check:
             return {'success': 1}
         return {'success': 0}
+
+    @http.route('/email', website=True, type='json', auth='public', methods=['POST'])
+    def create_email(self, **kw):
+        vals = {
+            'email': kw['kwargs']['email'],
+        }
+        check = request.env['introduce.email'].sudo().create(vals)
+        if check:
+            return {'success': 1}
+        return {'success': 0}

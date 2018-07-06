@@ -3,7 +3,7 @@
     text-align: center;
 }
 
-.modal-question .modal-dialog {
+.modal-question .modal-dialog{
     width: 650px;
 }
 
@@ -118,6 +118,10 @@ table td {
 
 .modal-question .footer-modal button.close {
     margin-right: 15px!important;
+}
+#modal-success .modal-body h3{
+    text-align: center;
+    color: #388E3C;
 }
 
 @media (max-width: 991px) {

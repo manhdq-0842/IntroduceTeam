@@ -389,7 +389,8 @@
                                     </p>
                                     <p t-else=""
                                        style="text-align: center; font-size: 21px; line-height: 26px; color: #777777;">
-                                        We were completed many many products for other customers<br/>This products will be active.
+                                        We were completed many many products for other customers<br/>This products will
+                                        be active.
                                     </p>
                                     <p></p>
                                 </div>
@@ -511,7 +512,7 @@
                                 <input type="hidden" name="redirect" value="/"/>
                                 <div class="row header">
                                     <span class="title">
-                                        <t t-if="vi"> LIÊN HỆ VỚI CHÚNG TÔI</t>
+                                        <t t-if="vi">LIÊN HỆ VỚI CHÚNG TÔI</t>
                                         <t t-else="">Contact Us</t>
                                     </span>
                                 </div>
@@ -519,11 +520,12 @@
                                     <table style="width: 100%;">
                                         <tr>
                                             <td class="name td-first">
-                                                <t t-if="vi"> Tên của bạn:</t>
-                                                <t t-else=""> Name:</t>
+                                                <t t-if="vi">Tên của bạn:</t>
+                                                <t t-else="">Name:</t>
                                             </td>
                                             <td>
-                                                <input id='contact_name' class="form-control" name="contact_name" required="True"
+                                                <input id='contact_name' class="form-control" name="contact_name"
+                                                       required="True"
                                                        type="text" placeholder="Nguyen Van A"/>
                                             </td>
                                         </tr>
@@ -533,14 +535,16 @@
                                                 <t t-else="">Phone:</t>
                                             </td>
                                             <td>
-                                                <input id='contact_phone' class="form-control" name="contact_phone" required="True"
+                                                <input id='contact_phone' class="form-control" name="contact_phone"
+                                                       required="True"
                                                        type="text" placeholder="0123456789"/>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td class="name">Email:</td>
                                             <td>
-                                                <input id='contact_email' class="form-control" name="contact_email" required="True"
+                                                <input id='contact_email' class="form-control" name="contact_email"
+                                                       required="True"
                                                        type="text" placeholder="123@gmail.com"/>
                                             </td>
                                         </tr>
@@ -569,6 +573,21 @@
                     </div>
                 </div>
 
+                <div class="modal fade modal-success" id="modal-success" role="dialog">
+                    <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title"></h4>
+                            </div>
+                            <div class="modal-body">
+                                <h3>Thanks your question!</h3>
+                            </div>
+                            <div class="modal-footer">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <script src="/introduce_company/static/src/js/homepage_script.js"/>
         </t>

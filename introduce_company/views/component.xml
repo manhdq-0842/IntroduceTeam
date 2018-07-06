@@ -130,8 +130,8 @@
                         <div id="text-2" class="widget widget_text">
                             <div class="textwidget">
                                 <!--<img style="width:226px;height:60px!important;"-->
-                                     <!--t-att-src="'/web/image?model=res.company&amp;id=%s&amp;field=logo' % (team.id)"-->
-                                     <!--alt="Montserrat"/>-->
+                                <!--t-att-src="'/web/image?model=res.company&amp;id=%s&amp;field=logo' % (team.id)"-->
+                                <!--alt="Montserrat"/>-->
                                 <img class="normal-logo" style="max-width:284px;max-height:60px;"
                                      t-att-src="'data:image/png;base64,' + to_text(team.logo)"
                                      alt="Odoo Insight"/>
@@ -157,20 +157,22 @@
                             <h6 t-if="vi" class="widget_title">Đăng ký</h6>
                             <h6 t-else="" class="widget_title">Subscribe</h6>
                             <div id="mc_embed_signup">
-                                <div t-if="vi" class="mailchimp-subtitle">Nhập email của bạn để nhận thông báo mới nhất
+                                <div class="mailchimp-subtitle">
+                                    <div class="done-tick hidden">
+                                        <img src="/introduce_company/static/src/img/done-tick.svg"/>
+                                    </div>
+                                    <div class="register-succuess">
+                                        <t t-if="vi">Nhập email của bạn để nhận thông báo mới nhất</t>
+                                        <t t-else="">Import your email to receive latest reports</t>
+                                    </div>
                                 </div>
-                                <div t-else="" class="mailchimp-subtitle">Import your email to receive latest reports
-                                </div>
-                                <form action="#Banner"
-                                      method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
-                                      class="validate" target="_blank" novalidate="">
-                                    <input type="text" value="" name="EMAIL" class="email" id="mce-EMAIL"
+                                <div>
+                                    <input type="text" value="" name="EMAIL" class="email" id="footer_email"
                                            placeholder="email" required=""/>
-                                    <input t-if="vi" type="submit" value="Gửi" name="subscribe"
-                                           id="mc-embedded-subscribe"/>
-                                    <input t-else="" type="submit" value="Subscribe" name="subscribe"
-                                           id="mc-embedded-subscribe"/>
-                                </form>
+                                    <input t-att-value="'%s'% ('Gửi' if vi else 'Subscribe')" type="submit"
+                                           name="subscribe"
+                                           id="footer_subscribe"/>
+                                </div>
                                 <div class="mailchimp-description"></div>
                             </div>
                         </div>

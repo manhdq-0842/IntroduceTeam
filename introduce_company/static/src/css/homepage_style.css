@@ -1,3 +1,6 @@
+body.o_connected_user {
+  padding-right: 0!important;
+}
 * {
   margin: 0;
   padding: 0;
@@ -226,7 +229,7 @@ input[type="button"] {
   text-align: center;
   z-index: 1;
 }
-#mc-embedded-subscribe {
+#footer_subscribe {
   height: 40px;
   line-height: 40px;
   padding: 0 35px;
@@ -1127,12 +1130,11 @@ img {
   padding: 25px 15px;
 }
 .benefit-container-img {
-  display: flex;
-  justify-content: center;
+  display: block;
 }
 .benefit-img.img-responsive {
-  width: 100%;
-  max-height: 135px;
+  max-width: 100%;
+  margin: auto 0;
 }
 .benefit-title {
   text-align: center;
@@ -1169,6 +1171,13 @@ img {
 }
 .benefit-title {
   color: #333333;
+}
+.dropdown-backdrop {
+  z-index: 0 !important;
+}
+.footer #mailchimp-1 .boder-footer-email,
+.modal-content table tr td .error-question {
+  border: 1px solid red!important;
 }
 @media only screen and (max-width: 1200px) {
   .banner-head-n {
@@ -1296,7 +1305,6 @@ img {
   .benefit.col-md-4 {
     width: 100%;
     margin: 15px 0;
-    padding: 15px;
   }
 }
 @media only screen and (max-width: 568px) {
