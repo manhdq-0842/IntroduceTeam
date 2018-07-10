@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <data>
+        <record model="ir.actions.act_window" id="banner_action">
+            <field name="name">Banner</field>
+            <field name="res_model">introduce.banner</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="banner_form" model="ir.ui.view">
+            <field name="name">introduce.banner.form</field>
+            <field name="model">introduce.banner</field>
+            <field name="arch" type="xml">
+                <form string="banner">
+                    <sheet>
+                        <group>
+                            <field name="image" widget="image"/>
+                            <field name="name" placeholder="name t"/>
+                            <field name="name_vn" placeholder="name VN"/>
+                            <field name="title" placeholder="content"/>
+                            <field name="title_vn" placeholder="content"/>
+                            <field name="button" placeholder="btn"/>
+                            <field name="button_vn" placeholder="btn VN"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <menuitem id="main_banner_menu" name="Banner"/>
+        <menuitem id="banner_menu" name="Banner" parent="main_banner_menu" action="banner_action"/>
+    </data>
+</odoo>

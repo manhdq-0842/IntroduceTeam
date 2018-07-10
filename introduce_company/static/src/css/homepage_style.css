@@ -243,6 +243,9 @@ input[type="button"] {
 .nz-persons .person .title {
   color: #999999;
 }
+.person .name:hover {
+  color: #171717!important;
+}
 .box-more:hover,
 .person-meta .title:hover {
   color: #f44336 !important;
@@ -961,7 +964,7 @@ img {
   height: 618px;
 }
 .carousel-caption {
-  left: 40% !important;
+  left: 35% !important;
   bottom: 20% !important;
   width: 60%;
   overflow: hidden;
@@ -985,7 +988,7 @@ img {
 .banner-title .title {
   display: flex;
   justify-content: center;
-  width: 70%;
+  width: 100%;
   font-size: 85px;
   margin: 0 auto;
   font-weight: bold;
@@ -1047,12 +1050,6 @@ img {
   margin: 0;
   padding: 0 !important;
 }
-.list-solution .solution-items .solution-img {
-  position: relative;
-  margin: -5px;
-  background: #000;
-  opacity: 0.8;
-}
 .solution-item {
   overflow: hidden;
   margin-top: 15px;
@@ -1061,7 +1058,7 @@ img {
   padding: 0;
 }
 .img-solution {
-  height: 150px;
+  height: 230px;
   margin-top: 160px;
   width: 100%;
 }
@@ -1108,9 +1105,9 @@ img {
 }
 .list-solution .solution-items .solution-img {
   position: relative;
-  margin: -5px;
   background: #000;
   opacity: 0.8;
+  border-radius: 6px;
 }
 .solution-item:hover {
   margin-top: 0 !important;
@@ -1173,10 +1170,10 @@ img {
 }
 .benefit-title {
   text-align: center;
-  font-size: 18px;
+  font-size: 33px;
   font-weight: bold;
   line-height: 25px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 .benefit-txt {
   font-size: 16px;
@@ -1192,7 +1189,7 @@ img {
 #Advisory {
   display: block;
   text-align: center;
-  padding: 100px;
+  padding: 120px;
   margin-top: 50px;
   background-image: url("/introduce_company/static/src/img/background-image.jpeg");
   background-size: 100% 100%;
@@ -1235,10 +1232,14 @@ img {
   color: #777777;
 }
 .solution-oinsight .reason:hover .reason-txt .title {
-  color: red;
+  color: #f44336;
 }
 .solution-oinsight .reason:hover .reason-txt .content p {
   color: #333333;
+}
+.banner-img img {
+  width: 100% !important;
+  height: 100% !important;
 }
 @media only screen and (max-width: 1200px) {
   .banner-head-n {

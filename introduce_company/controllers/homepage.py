@@ -16,6 +16,7 @@ def get_home_info():
     experience = request.env['introduce.experience'].sudo().search([])
     teams = request.env['res.company'].sudo().search([('x_id', '=', '1')])
     menu_parent = request.env['product.public.category'].sudo().search([('parent_id', '=', False)])
+    banner = request.env['introduce.banner'].sudo().search([])
 
     if len(teams) > 0:
         team = teams[0]
@@ -38,6 +39,7 @@ def get_home_info():
         'solution': solution,
         'odoo': odoo,
         'reason': reason,
+        'banner': banner,
     }
 
 

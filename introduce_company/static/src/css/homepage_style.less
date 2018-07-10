@@ -181,7 +181,9 @@ a.edit, a.view,
 .nz-persons .person .name, .nz-persons .person .title {
   color: #999999;
 }
-
+.person .name:hover{
+  color: #171717!important;
+}
 .box-more:hover, .person-meta .title:hover {
   color: #f44336 !important;
 }
@@ -975,7 +977,7 @@ img {
 }
 
 .carousel-caption {
-  left: 40% !important;
+  left: 35% !important;
   bottom: 20% !important;
   width: 60%;
   overflow: hidden;
@@ -1002,7 +1004,7 @@ img {
   .title {
     display: flex;
     justify-content: center;
-    width: 70%;
+    width: 100%;
     font-size: 85px;
     margin: 0 auto;
     font-weight: bold;
@@ -1074,13 +1076,6 @@ img {
   padding: 0 !important;
 }
 
-.list-solution .solution-items .solution-img {
-  position: relative;
-  margin: -5px;
-  background: #000;
-  opacity: 0.8;
-}
-
 .solution-item {
   overflow: hidden;
   margin-top: 15px;
@@ -1090,7 +1085,7 @@ img {
 }
 
 .img-solution {
-  height: 150px;
+  height: 230px;
   margin-top: 160px;
   width: 100%;
 }
@@ -1142,9 +1137,10 @@ img {
 
 .list-solution .solution-items .solution-img {
   position: relative;
-  margin: -5px;
+  //margin: -5px;
   background: #000;
   opacity: 0.8;
+  border-radius: 6px;
 }
 
 .solution-item:hover {
@@ -1221,10 +1217,10 @@ img {
 
 .benefit-title {
   text-align: center;
-  font-size: 18px;
+  font-size: 33px;
   font-weight: bold;
   line-height: 25px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .benefit-txt {
@@ -1244,7 +1240,7 @@ img {
 #Advisory {
   display: block;
   text-align: center;
-  padding: 100px;
+  padding: 120px;
   margin-top: 50px;
   background-image: url("/introduce_company/static/src/img/background-image.jpeg");
   //background: linear-gradient(to bottom, rgba(255,255,255,0.7) 0%,rgba(255,255,255,0.7) 100%), url(/introduce_company/static/src/img/background-image.jpeg) repeat 0 0;
@@ -1296,11 +1292,15 @@ img {
 
 .solution-oinsight .reason:hover {
   .reason-txt .title {
-    color: red;
+    color: #f44336;
   }
   .reason-txt .content p {
     color: #333333;
   }
+}
+.banner-img img{
+  width: 100% !important;
+  height: 100% !important;
 }
 
 
