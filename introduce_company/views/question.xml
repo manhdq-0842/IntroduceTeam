@@ -3,30 +3,54 @@
 <odoo>
     <data>
         <!--question-->
-        <record id="question_form" model="ir.ui.view">
-            <field name="name">introduce.question.form</field>
-            <field name="model">introduce.question</field>
-            <field name="arch" type="xml">
-                <form string="question">
-                    <sheet>
-                        <group>
-                            <field name="name" placeholder="Name"/>
-                            <field name="phone" placeholder="Phone"/>
-                            <field name="email" placeholder="Email"/>
-                        </group>
-                        <group>
-                            <field name="question" placeholder="Question"/>
-                        </group>
-                    </sheet>
-                </form>
-            </field>
-        </record>
-
         <record model="ir.actions.act_window" id="question_action">
             <field name="name">Question</field>
             <field name="res_model">introduce.question</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="question_form" model="ir.ui.view">
+            <field name="name">introduce.question.form</field>
+            <field name="model">introduce.question</field>
+            <field name="arch" type="xml">
+                <form string="question">
+                    <header>
+                        <button name="action_confirm" string="Confirm" type="object" class="oe_highlight"
+                                attrs="{'invisible':[('status','!=','wait')]}"/>
+                        <button name="action_done" string="Done" type="object" class="oe_highlight"
+                                attrs="{'invisible':[('status','!=','in_progress')]}"/>
+                        <field name="status" widget="statusbar" statusbar_visible="wait,in_progress,done"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="name" placeholder="Name"/>
+                            <field name="phone" placeholder="Phone"/>
+                            <field name="email" placeholder="Email"/>
+                            <field name="create_date"/>
+                        </group>
+                        <notebook>
+                            <page string="Question">
+                                <field name="question" placeholder="Question"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_question_tree" model="ir.ui.view">
+            <field name="name">introduce.question.tree</field>
+            <field name="model">introduce.question</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree string="Question">
+                    <field name="name"/>
+                    <field name="status"/>
+                    <field name="create_date"/>
+                    <field name="question" widget="html"/>
+                </tree>
+            </field>
         </record>
 
         <menuitem id="main_question_menu" name="Question"/>

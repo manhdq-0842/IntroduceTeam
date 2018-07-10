@@ -7,6 +7,7 @@ from odoo.http import request
 
 
 def get_home_info():
+    reason = request.env['product.template'].sudo().search([('x_type', '=', 'reason')])
     odoo = request.env['product.template'].sudo().search([('x_type', '=', 'introduce_odoo')])
     product = request.env['product.template'].sudo().search([('x_type', '=', 'complete_product')])
     solution = request.env['product.template'].sudo().search([('x_type', '=', 'solution')])
@@ -36,6 +37,7 @@ def get_home_info():
         'customer': customer,
         'solution': solution,
         'odoo': odoo,
+        'reason': reason,
     }
 
 
@@ -57,6 +59,7 @@ class Homepage(Website):
             'phone': kw['kwargs']['phone'],
             'email': kw['kwargs']['email'],
             'question': kw['kwargs']['question'],
+            'status': 'wait',
         }
         check = request.env['introduce.question'].sudo().create(vals)
         if check:

@@ -40,7 +40,7 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li class="" dir="ltr">
-                                        <a class="js_change_lang" href="" data-default-lang="true" data-lang="en_US">
+                                        <a class="js_change_lang" href="" data-default-lang="true" data-lang="en_US"  onclick="setCookie('lang','en')">
                                             <img src="/introduce_company/static/src/img/en.gif" alt="English (UK)"
                                                  title="English (UK)" style="width: 20px;"/>
                                             English (UK)
@@ -161,9 +161,13 @@
                                     <div class="done-tick hidden">
                                         <img src="/introduce_company/static/src/img/done-tick.svg"/>
                                     </div>
-                                    <div class="register-succuess">
+                                    <div class="register">
                                         <t t-if="vi">Nhập email của bạn để nhận thông báo mới nhất</t>
                                         <t t-else="">Import your email to receive latest reports</t>
+                                    </div>
+                                    <div class="register-succuess hidden">
+                                        <t t-if="vi">Chúng tôi đã nhận được email của bạn</t>
+                                        <t t-else="">We have been received your email</t>
                                     </div>
                                 </div>
                                 <div>

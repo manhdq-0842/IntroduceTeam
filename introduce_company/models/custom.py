@@ -9,13 +9,13 @@ class ProductTemplate(models.Model):
     _inherit = 'product.template'
 
     x_title = fields.Char(string="Title")
-    x_title_vn = fields.Char(string="Tiêu đề/ Tên")
+    x_title_vn = fields.Char(string="Tên VN/ Title odoo")
     x_description = fields.Text(string="Description")
     x_description_vn = fields.Text(string="Miêu tả")
     x_link = fields.Text(string="Link")
     x_type = fields.Selection(requied=True, string="Type",
                               selection=[('complete_product', 'Complete Product'), ('customer', 'Customer'),
-                                         ('solution', 'Solution'), ('introduce_odoo', 'Introduce Odoo')])
+                                         ('solution', 'Solution'), ('introduce_odoo', 'Introduce Odoo'), ('reason', 'Reason Choose Us')])
 
 
 class Person(models.Model):

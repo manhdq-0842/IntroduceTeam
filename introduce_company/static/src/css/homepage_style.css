@@ -1,5 +1,5 @@
 body.o_connected_user {
-  padding-right: 0!important;
+  padding-right: 0 !important;
 }
 * {
   margin: 0;
@@ -43,6 +43,9 @@ a:hover,
 a:focus {
   color: #23527c;
   text-decoration: none !important;
+}
+.modal .form-control:focus {
+  border-color: #13d4c0 !important;
 }
 .nz-persons .person .title:after,
 .post .post-date:after,
@@ -644,7 +647,7 @@ a,
   text-align: center;
 }
 .project-tile-overlay h4 {
-  color: #ffffff!important;
+  color: #ffffff !important;
   font-size: 20px;
   font-weight: bold;
   text-transform: uppercase;
@@ -952,49 +955,61 @@ img {
   color: #ffffff;
 }
 .banner {
-  height: 640px;
+  height: 658px;
 }
 .banner-head-y {
-  height: 604px;
+  height: 618px;
+}
+.carousel-caption {
+  left: 40% !important;
+  bottom: 20% !important;
+  width: 60%;
+  overflow: hidden;
+  animation-duration: 2s;
+  animation-name: animate1;
+}
+@keyframes animate1 {
+  from {
+    bottom: -40%;
+  }
+  to {
+    bottom: 20%;
+  }
 }
 .banner-title {
   margin: 0 5%;
-  width: 90%;
   text-align: center;
   position: absolute;
-  top: 300px;
   z-index: 1;
 }
 .banner-title .title {
+  display: flex;
+  justify-content: center;
   width: 70%;
   font-size: 85px;
   margin: 0 auto;
   font-weight: bold;
-  color: yellow;
+  color: #171717;
   line-height: 85px;
-  animation-duration: 1s;
-  animation-name: fadeAndScale;
-  animation-timing-function: cubic-bezier(0.71, 0.55, 0.62, 1.57);
 }
 .banner-title .content {
-  animation-duration: 1s;
-  animation-name: fadeAndScale;
-  animation-timing-function: cubic-bezier(0.71, 0.55, 0.62, 1.57);
+  display: flex;
+  justify-content: center;
   font-size: 25px;
   margin: 10px auto 0;
   font-weight: bold;
-  color: yellow;
+  color: #171717;
   line-height: 25px;
 }
-@keyframes fadeAndScale {
-  from {
-    opacity: 0;
-    transform: scale(0.2, 0.2);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1, 1);
-  }
+.banner-title .demo {
+  margin-top: 15px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+}
+.banner-title .demo:hover {
+  color: #ffffff;
+  font-size: 17px;
 }
 .box-menu .dropdown img {
   width: 20px !important;
@@ -1040,12 +1055,15 @@ img {
 }
 .solution-item {
   overflow: hidden;
-  margin-top: 10px;
+  margin-top: 15px;
   margin-bottom: 20px;
+  border-radius: 6px;
+  padding: 0;
 }
-.solution-img .img-solution {
+.img-solution {
+  height: 150px;
+  margin-top: 160px;
   width: 100%;
-  opacity: 0.3;
 }
 .list-solution a {
   color: inherit;
@@ -1068,8 +1086,16 @@ img {
   font-size: 24px;
   line-height: 22px;
   font-weight: bold;
+  background-color: red;
+  display: block;
+  padding: 10px;
+  float: left;
+  margin: auto auto 20px;
+  border-radius: 0 4px 4px 0;
+  color: #ffffff !important;
 }
 .list-solution .solution-info h5 {
+  display: inline-block;
   font-size: 20px;
   line-height: 22px;
   opacity: 0.8;
@@ -1086,7 +1112,14 @@ img {
   background: #000;
   opacity: 0.8;
 }
-.list-solution .solution-items .solution-img:hover {
+.solution-item:hover {
+  margin-top: 0 !important;
+  padding-bottom: 15px;
+}
+.solution-item:hover h5 {
+  color: #000000 !important;
+}
+.solution-item:hover .solution-img {
   background: url("/introduce_company/static/src/img/Rectangle 10.png");
   opacity: 1;
   background-size: 100%;
@@ -1117,20 +1150,22 @@ img {
 }
 .three-benefit {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .benefit.col-md-4 {
-  padding: 0;
-  margin: 15px;
-  border-radius: 4px;
+  padding: 15px 15px 20px;
   overflow: hidden;
   width: 33.33%;
-  border: 1px solid #c7c7c7;
 }
 .benefit-content {
-  padding: 25px 15px;
+  padding: 25px 18px;
+  background-color: #f0f3f2;
 }
 .benefit-container-img {
   display: block;
+  border-radius: 20px 20px 0 0;
+  overflow: hidden;
 }
 .benefit-img.img-responsive {
   max-width: 100%;
@@ -1157,7 +1192,7 @@ img {
 #Advisory {
   display: block;
   text-align: center;
-  padding: 80px;
+  padding: 100px;
   margin-top: 50px;
   background-image: url("/introduce_company/static/src/img/background-image.jpeg");
   background-size: 100% 100%;
@@ -1177,7 +1212,33 @@ img {
 }
 .footer #mailchimp-1 .boder-footer-email,
 .modal-content table tr td .error-question {
-  border: 1px solid red!important;
+  border: 1px solid red !important;
+}
+.solution-oinsight .reason {
+  margin-bottom: 20px;
+}
+.solution-oinsight .reason-txt .title {
+  padding-top: 0;
+  padding-right: 30px;
+  line-height: 24px;
+  text-transform: none;
+  margin-bottom: 14px;
+  font-weight: 700;
+  font-size: 20px;
+  z-index: 1;
+  color: #333333;
+}
+.solution-oinsight .reason-txt .content p {
+  line-height: 22px;
+  font-size: 16px;
+  margin: 0 0 15px;
+  color: #777777;
+}
+.solution-oinsight .reason:hover .reason-txt .title {
+  color: red;
+}
+.solution-oinsight .reason:hover .reason-txt .content p {
+  color: #333333;
 }
 @media only screen and (max-width: 1200px) {
   .banner-head-n {
@@ -1193,9 +1254,6 @@ img {
   }
   .width_header {
     display: block;
-  }
-  .banner-title {
-    top: 7%;
   }
   .banner-title .title {
     font-size: 60px;
@@ -1238,11 +1296,18 @@ img {
   .solution-odoo-info .more-view {
     font-size: 14px !important;
   }
-  .banner-title {
-    top: 5%;
-  }
   #Advisory {
     padding: 16px;
+  }
+  .reason-item {
+    display: flex;
+  }
+  .reason-img img {
+    margin: 0 auto;
+    max-width: 135px;
+  }
+  .reason-txt {
+    text-align: center;
   }
 }
 @media only screen and (max-width: 768px) {
@@ -1254,9 +1319,6 @@ img {
   }
   #Experience video {
     display: none;
-  }
-  .banner-title {
-    top: 3%;
   }
   .banner-title .title {
     font-size: 35px;
@@ -1314,18 +1376,12 @@ img {
   .solution-item {
     width: 100% !important;
   }
-  .banner-title {
-    top: 2%;
-  }
 }
 @media only screen and (max-width: 400px) {
   .ninzio-overlay .social-links a {
     width: 18px;
     height: 18px;
     line-height: 17px;
-  }
-  .banner-title {
-    top: 115px;
   }
   .banner-title .title {
     font-size: 25px;
@@ -1336,7 +1392,7 @@ img {
     line-height: 10px;
   }
   .container {
-    padding: 0!important;
+    padding: 0 !important;
   }
 }
 @media only screen and (min-width: 768px) {

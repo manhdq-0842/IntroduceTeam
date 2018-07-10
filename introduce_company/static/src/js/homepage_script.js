@@ -8,6 +8,13 @@ odoo.define("introduce_company.homepage", function (require) {
     var $menuSoluA = $('.menu-solution a');
     var $menuParent = $('#menu-item-parent a');
     var checkOdooHeader = 0;
+    var header = $('.header');
+
+    //status header - top
+    var offsetHeader = (header.offset().top);
+     if(offsetHeader > 70){
+         header.addClass('active');
+     }
 
     $('.list-solution a').click(function (e) {
         e.preventDefault();
@@ -25,7 +32,6 @@ odoo.define("introduce_company.homepage", function (require) {
 
     //check scroll page
     $(window).scroll(function () {
-        var header = $('.header');
         var height = $(window).scrollTop();
         if (height < 10) {
             header.removeClass('active');
@@ -36,10 +42,6 @@ odoo.define("introduce_company.homepage", function (require) {
             $('.to-top').removeClass('hidden');
         } else {
             $('.to-top').addClass('hidden');
-        }
-
-        if (height >= 100) {
-
         }
 
         if (height >= 800) {
@@ -91,7 +93,7 @@ odoo.define("introduce_company.homepage", function (require) {
                     'name': name,
                     'phone': phone,
                     'email': email,
-                    'question': question
+                    'question': question,
                 }
             }).then(function (data) {
                 if (data['success']) {
@@ -117,8 +119,9 @@ odoo.define("introduce_company.homepage", function (require) {
                 }
             }).then(function (data) {
                 if (data['success']) {
-                    $('.done-tick').addClass('hidden');
-
+                    $('.done-tick').removeClass('hidden');
+                    $('.register').addClass('hidden');
+                    $('.register-succuess').removeClass('hidden');
                 }
             });
         }
@@ -225,7 +228,47 @@ odoo.define("introduce_company.homepage", function (require) {
         $('.js_language_selector .js_change_lang').click()
     });
 
+    // Change the interface language
+   var lang = getCookie("lang");
+   if(lang){
+       // cookie language was set to "vi" and URL does not contain "vi"
+       if (lang.include("vi") && !(document.URL.includes("vi"))){
+           window.location.href = '/vi/';
+       } else if (lang.include("en") && !(document.URL.includes("en"))){
+           window.location.href = '/en/';
+       }
+
+   } else {
+       var userLang = navigator.language;
+       if (userLang.includes('vi')&&!(document.URL.includes("vi")))
+           window.location.href = '/vi/';
+   }
 });
+
+// functions to help manipulating cookies
+function setCookie(cname,cvalue,exdays){
+   var d = new Date();
+   d.setTime(d.getTime() + (exdays*24*60*60*1000));
+   var expires = "expires="+ d.toUTCString();
+   document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+   var name = cname + "=";
+   var decodedCookie = decodeURIComponent(document.cookie);
+   var ca = decodedCookie.split(';');
+   for (var i = 0; i <ca.length; i++) {
+       var c = ca[i];
+       while (c.charAt(0)==' '){
+           c=c.substring(1);
+       }
+       if (c.indexOf(name)==0){
+           return c.substring(name.length, c.length);
+       }
+   }
+   return "";
+
+}
 
 function checkEmail(inputtxt, type) {
     var filter = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;

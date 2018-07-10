@@ -59,7 +59,7 @@
                                             <ul class="dropdown-menu">
                                                 <li class="" dir="ltr">
                                                     <a class="js_change_lang" href="" data-default-lang="true"
-                                                       data-lang="en_US">
+                                                       data-lang="en_US" onclick="setCookie('lang','en')">
                                                         <img src="/introduce_company/static/src/img/en.gif"
                                                              alt="English (UK)"
                                                              title="English (UK)" style="width: 20px;"/>
@@ -107,34 +107,56 @@
                 <!--slide banner-->
                 <div id="Banner" class="banner">
                     <div class="container1">
-                        <div class="banner-title">
-                            <p class="title">The OInsight</p>
-                            <p t-if="vi" class="content">Một giải pháp hoàn hảo cho doanh nghiệp!</p>
-                            <p t-else="" class="content">A perfect solution for business!</p>
-                        </div>
-                        <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                            <!-- Indicators -->
-                            <ol class="carousel-indicators">
-                                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                                <li data-target="#myCarousel" data-slide-to="1"></li>
-                                <li data-target="#myCarousel" data-slide-to="2"></li>
-                            </ol>
+                        <div id="myCarousel" class="carousel slide" data-ride="carousel" data-animation-speed="">
 
                             <!-- Wrapper for slides -->
                             <div class="carousel-inner">
                                 <div class="item active">
-                                    <img src="/introduce_company/static/src/img/slider_bg1.jpg" alt="Image1"
+                                    <img src="/introduce_company/static/src/img/banner1.jpg" alt="Image1"
                                          style="width:100%;"/>
+                                    <div class="carousel-caption banner-title caption-1">
+                                        <p class="title">The OInsight</p>
+                                        <p t-if="vi" class="content">Một giải pháp hoàn hảo cho doanh nghiệp!</p>
+                                        <p t-else="" class="content">A perfect solution for business!</p>
+                                        <a href="http://demo.odooinsight.info/">
+                                            <button class="btn demo">
+                                                <t t-if="vi">Dùng thử miễn phí</t>
+                                                <t t-else="">Use free</t>
+                                            </button>
+                                        </a>
+                                    </div>
                                 </div>
 
                                 <div class="item">
-                                    <img src="/introduce_company/static/src/img/slider_bg2.jpg" alt="Image2"
+                                    <img src="/introduce_company/static/src/img/banner2.jpeg" alt="Image2"
                                          style="width:100%;"/>
+                                    <div class="carousel-caption banner-title caption-2">
+                                        <p class="title">The OInsight</p>
+                                        <p t-if="vi" class="content">Một giải pháp hoàn hảo cho doanh nghiệp!</p>
+                                        <p t-else="" class="content">A perfect solution for business!</p>
+                                        <a href="http://demo.odooinsight.info/">
+                                            <button class="btn demo">
+                                                <t t-if="vi">Dùng thử miễn phí</t>
+                                                <t t-else="">Use free</t>
+                                            </button>
+                                        </a>
+                                    </div>
                                 </div>
 
                                 <div class="item">
-                                    <img src="/introduce_company/static/src/img/slider_bg3.jpg" alt="Image3"
+                                    <img src="/introduce_company/static/src/img/banner3.jpg" alt="Image3"
                                          style="width:100%;"/>
+                                    <div class="carousel-caption banner-title caption-3">
+                                        <p class="title">The OInsight</p>
+                                        <p t-if="vi" class="content">Một giải pháp hoàn hảo cho doanh nghiệp!</p>
+                                        <p t-else="" class="content">A perfect solution for business!</p>
+                                        <a href="http://demo.odooinsight.info/">
+                                            <button class="btn demo">
+                                                <t t-if="vi">Dùng thử miễn phí</t>
+                                                <t t-else="">Use free</t>
+                                            </button>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
 
@@ -151,51 +173,19 @@
                     </div>
                 </div>
 
-                <!--Introduce-->
-                <div id="Introduce-OIsight" class="solution-odoo container">
-                    <div class="col-md-12">
-                        <div class="col-md-6 col-sm-12 solution-odoo-info pull-left">
-                            <div class="col-md-12">
-                                <div class="col-sm-12">
-                                    <p style="font-weight: bold; font-size: 30px; line-height: 32px;">
-                                        <t t-if="vi" t-esc="team.x_partner_vn"/>
-                                        <t t-else="" t-esc="team.name"/>
-                                    </p>
-                                </div>
-                                <span>
-                                    <t t-if="vi" t-esc="team.x_description_vn"/>
-                                    <t t-else="" t-esc="team.x_description"/>
-                                </span>
-                                <p class="hidden">
-                                    <a t-if="vi" href="https://www.odoo.com/documentation/user" class="more-view">
-                                        Xem thêm
-                                    </a>
-                                    <a t-else="" href="https://www.odoo.com/documentation/user" class="more-view">
-                                        Read more
-                                    </a>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-12 solution-odoo-img pull-right">
-                            <img t-att-src="'data:image/png;base64,' + to_text(team.x_image)"
-                                 alt="Company Logo"/>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Solution-->
+                <!--Odoo-->
                 <div id="Solution" class="nz-section horizontal autoheight-false animate-false full-width-false "
                      data-animation-speed="35000" data-parallax="false" style="padding-bottom:25px;">
                     <div class="">
                         <div class="container" style="display: flex;">
                             <div class="col vc_col-sm-12 vc_col-lg-6 vc_col-md-8 vc_col-xs-12 col12  element-animate-false valign-top"
-                                 style="margin: 70px auto 10px" data-effect="none" data-align="left"
+                                 style="margin: 70px auto 10px; width:100%" data-effect="none" data-align="left"
                                  data-margin="false">
                                 <div class="col-inner" style="margin-top:15px">
                                     <h2 style="font-size: 30px;color: #333333;line-height: 40px;text-align: center"
                                         class="vc_custom_heading">
-                                        <t t-if="vi">Giải pháp của chúng tôi</t>
-                                        <t t-else="">Our Solution</t>
+                                        <t t-if="vi">Giới thiệu Odoo</t>
+                                        <t t-else="">Introduce Odoo</t>
                                     </h2>
 
                                     <div class="sep-wrap element-animate element-animate-false center nz-clearfix"
@@ -209,13 +199,9 @@
                                          data-effect="none"
                                          data-effect-speed="50">
                                         <p></p>
-                                        <p t-if="vi"
-                                           style="text-align: center; font-size: 21px; line-height: 26px; color: #777777;">
-                                            Chúng tôi cung cấp những giải pháp tốt nhất trên nền tảng Odoo
-                                        </p>
-                                        <p t-else=""
-                                           style="text-align: center; font-size: 21px; line-height: 26px; color: #777777;">
-                                            We provide the best solutions on the Odoo platform
+                                        <p style="text-align: center; font-size: 21px; line-height: 26px; color: #777777;">
+                                            <t t-if="vi">Odoo là một hệ thống phần mềm quản lý tổng thể doanh nghiệp</t>
+                                            <t t-else="">Odoo is a system management software for business</t>
                                         </p>
                                         <p></p>
                                     </div>
@@ -228,8 +214,6 @@
                                     <a href="">
                                         <div class="col-xs-6 col-sm-6 col-md-3 solution-item">
                                             <div class="solution-img">
-                                                <img class="img-solution"
-                                                     t-att-src="'/web/image?model=product.template&amp;id=%s&amp;field=image' % (k.id)"/>
                                                 <div class="solution-info">
                                                     <h4>
                                                         <t t-esc="k.name"/>
@@ -239,11 +223,12 @@
                                                         <t t-else="" t-esc="k.x_title"/>
                                                     </h5>
                                                 </div>
-                                                <!--<img src="/introduce_company/static/src/img/icon.png"/>-->
-                                                <div class="solution-content">
+                                                <div class="solution-content hidden">
                                                     <t t-if="vi" t-esc="k.x_description_vn"/>
                                                     <t t-else="" t-esc="k.x_description"/>
                                                 </div>
+                                                <img class="img-solution"
+                                                     t-att-src="'/web/image?model=product.template&amp;id=%s&amp;field=image' % (k.id)"/>
                                             </div>
                                         </div>
                                     </a>
@@ -251,6 +236,138 @@
                             </div>
 
                         </div>
+                    </div>
+                </div>
+
+                <!--Solution-->
+                <div id="Introduce-Odoo" class="container">
+                    <div class="container" style="display: flex;">
+                        <div class="col vc_col-sm-12 vc_col-lg-6 vc_col-md-8 vc_col-xs-12 col12  element-animate-false valign-top"
+                             style="margin: 70px auto 10px;width:100%;" data-effect="none" data-align="left"
+                             data-margin="false">
+                            <div class="col-inner" style="margin: 15px auto;">
+                                <h2 style="font-size: 30px;color: #333333;line-height: 40px;text-align: center"
+                                    class="vc_custom_heading">
+                                    <t t-if="vi">Giải pháp của chúng tôi</t>
+                                    <t t-else="">Solution</t>
+                                </h2>
+                                <div class="sep-wrap element-animate element-animate-false center nz-clearfix"
+                                     data-effect="none">
+                                    <div class="nz-separator solid"
+                                         style="border-bottom-color:#f44336;width:100px;border-bottom-width:2px;border-bottom-style:solid;margin-top:8px;">
+                                        &#160;
+                                    </div>
+                                </div>
+                                <div style="" class="nz-column-text nz-clearfix  element-animate-false"
+                                     data-effect="none"
+                                     data-effect-speed="50">
+                                    <p></p>
+                                    <p t-if="vi"
+                                       style="text-align: center; font-size: 21px; line-height: 26px; color: #777777;">
+                                        Chúng tôi cung cấp những giải pháp tốt nhất trên nền tảng Odoo
+                                    </p>
+                                    <p t-else=""
+                                       style="text-align: center; font-size: 21px; line-height: 26px; color: #777777;">
+                                        We provide the best solutions on the Odoo platform
+                                    </p>
+                                    <p></p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="three-benefit">
+                        <t t-foreach="odoo" t-as="odoo">
+                            <div class="benefit col-md-4">
+                                <div class="benefit-container-img">
+                                    <img class="benefit-img img-responsive"
+                                         t-att-src="'/web/image?model=product.template&amp;id=%s&amp;field=image' % (odoo.id)"/>
+                                </div>
+                                <div class="benefit-content">
+                                    <div class="benefit-title">
+                                        <t t-if="vi" t-esc="odoo.x_title_vn"/>
+                                        <t t-else="" t-esc="odoo.name"/>
+                                    </div>
+                                    <div class="benefit-txt">
+                                        <t t-if="vi" t-raw="odoo.x_description_vn"/>
+                                        <t t-else="" t-raw="odoo.x_description"/>
+                                    </div>
+                                </div>
+                                <div>
+                                    <svg viewBox="0 0 1000 20" preserveAspectRatio="none" width="100%" height="20"
+                                         style="fill: #f0f3f2;">
+                                        <path d="M 0,-0.5 0,20 500,0 1000,20 1000,-0.5"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                </div>
+
+                <!--Introduce-->
+                <div id="Introduce-OIsight" class="solution-oinsight container">
+                    <div class="container" style="display: flex;">
+                        <div class="col vc_col-sm-12 vc_col-lg-6 vc_col-md-8 vc_col-xs-12 col12  element-animate-false valign-top"
+                             style="margin: 30px auto 10px" data-effect="none" data-align="left" data-margin="false">
+                            <div class="col-inner" style="">
+                                <h2 t-if="vi"
+                                    style="font-size: 30px;color: #333333;line-height: 40px;text-align: center"
+                                    class="vc_custom_heading">Tại sao chọn chúng tôi
+                                </h2>
+                                <h2 t-else=""
+                                    style="font-size: 30px;color: #333333;line-height: 40px;text-align: center"
+                                    class="vc_custom_heading">Why choose we
+                                </h2>
+                                <div class="sep-wrap element-animate element-animate-false center nz-clearfix"
+                                     data-effect="none">
+                                    <div class="nz-separator solid"
+                                         style="border-bottom-color:#f44336;width:100px;border-bottom-width:2px;border-bottom-style:solid;margin-top:8px">
+                                        &#160;
+                                    </div>
+                                </div>
+                                <div style="" class="nz-column-text nz-clearfix  element-animate-false"
+                                     data-effect="none"
+                                     data-effect-speed="50">
+                                    <p></p>
+                                    <p t-if="vi"
+                                       style="text-align: center; font-size: 21px; line-height: 26px; color: #777777;">
+                                        Chúng tôi có những thành viên trẻ trung và năng động.
+                                        <br/>
+                                        Sẵn sàng đối mặt với mọi thử thách.
+                                    </p>
+                                    <p t-else=""
+                                       style="text-align: center; font-size: 21px; line-height: 26px; color: #777777;">
+                                        We have the following users and dynamic center.<br/>Ready for objects with every
+                                        try.
+                                    </p>
+                                    <p></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <t t-foreach="reason" t-as="reason">
+                            <a href="#" class="reason-item">
+                                <div class="col-md-6 reason">
+                                    <div class="reason-img col-xs-12 col-sm-3 col-md-3">
+                                        <img class="img-responsive"
+                                             t-att-src="'/web/image?model=product.template&amp;id=%s&amp;field=image' % (reason.id)"/>
+                                    </div>
+                                    <div class="reason-txt col-xs-12 col-sm-9 col-md-9">
+                                        <div class="title col-md-12">
+                                            <t t-if="vi" t-esc="reason.x_title_vn"/>
+                                            <t t-else="" t-esc="reason.name"/>
+                                        </div>
+                                        <div class="content col-md-12">
+                                            <p>
+                                                <t t-if="vi" t-esc="reason.x_description_vn"/>
+                                                <t t-else="" t-esc="reason.x_description"/>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </t>
                     </div>
                 </div>
 
@@ -297,59 +414,6 @@
                     </div>
                 </div>
 
-                <div id="Introduce-Odoo" class="container">
-                    <div class="container" style="display: flex;">
-                        <div class="col vc_col-sm-12 vc_col-lg-6 vc_col-md-8 vc_col-xs-12 col12  element-animate-false valign-top"
-                             style="margin: 70px auto 10px;width:100%;" data-effect="none" data-align="left"
-                             data-margin="false">
-                            <div class="col-inner" style="width: 50%;margin: 15px auto;">
-                                <h2 style="font-size: 30px;color: #333333;line-height: 40px;text-align: center"
-                                    class="vc_custom_heading">
-                                    <t t-if="vi">Giới Thiệu Odoo</t>
-                                    <t t-else="">Introduce Odoo</t>
-                                </h2>
-                                <div class="sep-wrap element-animate element-animate-false center nz-clearfix"
-                                     data-effect="none">
-                                    <div class="nz-separator solid"
-                                         style="border-bottom-color:#f44336;width:100px;border-bottom-width:2px;border-bottom-style:solid;margin-top:8px;">
-                                        &#160;
-                                    </div>
-                                </div>
-                                <div style="" class="nz-column-text nz-clearfix  element-animate-false"
-                                     data-effect="none"
-                                     data-effect-speed="50">
-                                    <p></p>
-                                    <p style="text-align: center; font-size: 21px; line-height: 26px; color: #777777;">
-                                        <t t-if="vi">Odoo là một hệ thống phần mềm quản lý tổng thể doanh nghiệp</t>
-                                        <t t-else="">Odoo is a system management software for business</t>
-                                    </p>
-                                    <p></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="three-benefit">
-                        <t t-foreach="odoo" t-as="odoo">
-                            <div class="benefit col-md-4">
-                                <div class="benefit-container-img">
-                                    <img class="benefit-img img-responsive"
-                                         t-att-src="'/web/image?model=product.template&amp;id=%s&amp;field=image' % (odoo.id)"/>
-                                </div>
-                                <div class="benefit-content">
-                                    <div class="benefit-title">
-                                        <t t-if="vi" t-esc="odoo.x_title_vn"/>
-                                        <t t-else="" t-esc="odoo.name"/>
-                                    </div>
-                                    <div class="benefit-txt">
-                                        <t t-if="vi" t-esc="odoo.x_description_vn"/>
-                                        <t t-else="" t-esc="odoo.x_description"/>
-                                    </div>
-                                </div>
-                            </div>
-                        </t>
-                    </div>
-                </div>
-
                 <!--member-->
                 <div id="Member">
                     <t t-call="introduce_company.person">
@@ -361,15 +425,16 @@
                 <div id="Product" class="section-body container">
                     <div class="container" style="display: flex;">
                         <div class="col vc_col-sm-12 vc_col-lg-6 vc_col-md-8 vc_col-xs-12 col12  element-animate-false valign-top"
-                             style="margin: 40px auto 10px" data-effect="none" data-align="left" data-margin="false">
+                             style="margin: 40px auto 10px; width:100%;" data-effect="none" data-align="left"
+                             data-margin="false">
                             <div class="col-inner" style="">
                                 <h2 t-if="vi"
                                     style="font-size: 30px;color: #333333;line-height: 40px;text-align: center"
-                                    class="vc_custom_heading">Sản Phẩm Đã Hoàn Thành
+                                    class="vc_custom_heading">Dự Án Đã Hoàn Thành
                                 </h2>
                                 <h2 t-else=""
                                     style="font-size: 30px;color: #333333;line-height: 40px;text-align: center"
-                                    class="vc_custom_heading">Complete Product
+                                    class="vc_custom_heading">Complete Project
                                 </h2>
                                 <div class="sep-wrap element-animate element-animate-false center nz-clearfix"
                                      data-effect="none">
@@ -384,12 +449,12 @@
                                     <p></p>
                                     <p t-if="vi"
                                        style="text-align: center; font-size: 21px; line-height: 26px; color: #777777;">
-                                        Chúng tôi đã hoàn thành rất nhiều sản phẩm cho các khách hàng khác nhau.
+                                        Chúng tôi đã hoàn thành rất nhiều dự án cho các khách hàng khác nhau.
                                         <br/>Các sản phẩm này vẫn đang được hoạt động.
                                     </p>
                                     <p t-else=""
                                        style="text-align: center; font-size: 21px; line-height: 26px; color: #777777;">
-                                        We were completed many many products for other customers<br/>This products will
+                                        We were completed many many project for other customers<br/>This projects will
                                         be active.
                                     </p>
                                     <p></p>
@@ -429,7 +494,7 @@
                     <div class="col vc_col-sm-12 vc_col-lg-6 vc_col-md-8 vc_col-xs-12 col12  element-animate-false valign-top"
                          style="margin: 70px auto 10px;width:100%;" data-effect="none" data-align="left"
                          data-margin="false">
-                        <div class="col-inner" style="width: 50%;margin: 0 auto;">
+                        <div class="col-inner" style="width: 100%;margin: 0 auto;">
                             <h2 t-if="vi" style="font-size: 30px;color: #333333;line-height: 40px;text-align: center"
                                 class="vc_custom_heading">Khách Hàng Của Chúng Tôi
                             </h2>
@@ -498,7 +563,7 @@
                     <t t-set="team" t-value="team"/>
                 </t>
 
-                <!--popup-->
+                <!--popup question-->
                 <div class="modal fade modal-question in" role="dialog" id="modal-question"
                      aria-hidden="false">
                     <div class="modal-dialog">
@@ -573,6 +638,7 @@
                     </div>
                 </div>
 
+                <!--modal question success-->
                 <div class="modal fade modal-success" id="modal-success" role="dialog">
                     <div class="modal-dialog">
                         <!-- Modal content-->
