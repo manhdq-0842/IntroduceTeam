@@ -1049,11 +1049,11 @@ img {
 //poiter
 .to-top {
   display: flex;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   position: fixed;
-  bottom: 15px;
-  right: 20px;
+  bottom: 3px;
+  right: 3px;
   background-color: #eae1e1;
   border: 1px solid #FFFFFF;
   border-radius: 28px;
@@ -1061,10 +1061,10 @@ img {
   text-align: center;
   align-items: center;
   justify-content: center;
-  z-index: 200;
+  z-index: 90;
   .fa {
     color: #f44336;
-    font-size: 30px;
+    font-size: 25px;
   }
 }
 
@@ -1308,6 +1308,32 @@ img {
   width: 100% !important;
 }
 
+.o_livechat_button {
+  z-index: 100 !important;
+}
+
+.o_composer_text_field {
+  height: 30px;
+  padding: 20px;
+  background-color: #9ff192;
+  font-size: 16px;
+  color: #333333;
+}
+
+.o_thread_message_content, .o_thread_message_content p {
+  font-size: 16px;
+}
+.o_thread_message_sidebar{
+  align-items: center;
+  display: flex;
+}
+.o_chat_window .o_chat_header{
+  background-color: #ec4836!important;
+}
+.o_livechat_button, .o_chat_window{
+  right: 45px!important;
+  max-width: 300px;
+}
 @media only screen and (max-width: 1200px) {
 
   .banner-head-n {
@@ -1442,6 +1468,13 @@ img {
     .fa {
       font-size: 15px;
     }
+  }
+  .o_livechat_button{
+  right: 35px!important;
+  max-width: 300px;
+}
+  .o_chat_window{
+    right: 0!important;
   }
 
   .valign-top {

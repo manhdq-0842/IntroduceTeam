@@ -77,3 +77,4 @@ class Homepage(Website):
         if check:
             return {'success': 1}
         return {'success': 0}
+

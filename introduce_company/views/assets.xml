@@ -9,6 +9,7 @@
             <link rel="stylesheet" type="text/css" href="/introduce_company/static/src/css/modal.css"/>
         </xpath>
         <xpath expr="script[last()]" position="after">
+            <script type="text/javascript" src="/introduce_company/static/src/js/im_livechat.js"/>
         </xpath>
     </template>
 

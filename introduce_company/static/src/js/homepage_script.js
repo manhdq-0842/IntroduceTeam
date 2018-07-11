@@ -10,11 +10,11 @@ odoo.define("introduce_company.homepage", function (require) {
     var checkOdooHeader = 0;
     var header = $('.header');
 
-    //status header - top
+    //status header- top
     var offsetHeader = (header.offset().top);
-     if(offsetHeader > 70){
-         header.addClass('active');
-     }
+    if (offsetHeader > 70) {
+        header.addClass('active');
+    }
 
     $('.list-solution a').click(function (e) {
         e.preventDefault();
@@ -181,8 +181,8 @@ odoo.define("introduce_company.homepage", function (require) {
     //homepage is color
     $('#menu-item-parent:nth-child(1)').addClass('active');
 
+    //scroll
     $(document).on("scroll", onScroll1);
-    //smoothscroll
     $menuParent.on('click', function (e) {
         e.preventDefault();
         $(document).off("scroll");
@@ -198,12 +198,12 @@ odoo.define("introduce_company.homepage", function (require) {
             'scrollTop': $target.offset().top - 96 - checkOdooHeader
         }, 800, 'swing', function () {
             // window.location.hash = target;
-            $(document).on("scroll", onScroll1());
+            $(document).on("scroll", onScroll1);
         });
     });
 
+    //scroll mobi
     $(document).on("scroll", onScroll2);
-    //smoothscroll
     $menuSoluA.on('click', function (e) {
         e.preventDefault();
         $(document).off("scroll");
@@ -223,51 +223,80 @@ odoo.define("introduce_company.homepage", function (require) {
         });
     });
 
-    //click change my language => click odoo language
-    $('.js_change_lang').onclick(function () {
-        $('.js_language_selector .js_change_lang').click()
-    });
-
     // Change the interface language
-   var lang = getCookie("lang");
-   if(lang){
-       // cookie language was set to "vi" and URL does not contain "vi"
-       if (lang.include("vi") && !(document.URL.includes("vi"))){
-           window.location.href = '/vi/';
-       } else if (lang.include("en") && !(document.URL.includes("en"))){
-           window.location.href = '/en/';
-       }
+    var lang = getCookie("lang");
+    if (lang) {
+        //cookie language was set to "vi" and URL does not contain "vi"
+        if (lang.includes("vi") && !(document.URL.includes("vi"))) {
+            window.location.href = '/vi/';
+        }
+    }
+    else {
+        var userLang = navigator.language;
+        if (userLang.includes('vi') && !(document.URL.includes("vi")))
+            window.location.href = '/vi/';
+    }
 
-   } else {
-       var userLang = navigator.language;
-       if (userLang.includes('vi')&&!(document.URL.includes("vi")))
-           window.location.href = '/vi/';
-   }
 });
 
+//scroll
+function onScroll1() {
+    var scrollPos = $(document).scrollTop() + 130;
+    var $menuParent = $('#menu-item-parent a');
+    $menuParent.each(function () {
+        var currLink = $(this);
+        var refElement = $(currLink.attr("href"));
+        if (refElement.position().top <= scrollPos && refElement.position().top + refElement.outerHeight() > scrollPos) {
+            $menuParent.parent().removeClass("active");
+            currLink.parent().addClass("active");
+        }
+        else {
+            currLink.parent().removeClass("active");
+        }
+    });
+}
+
+//scroll mobi
+function onScroll2() {
+    var scrollPos = $(document).scrollTop();
+    var $menuSoluA = $('.menu-solution a');
+    $menuSoluA.each(function () {
+        var currLink = $(this);
+        var refElement = $(currLink.attr("href"));
+        if (refElement.position()) {
+            if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
+                $menuSoluA.removeClass("active");
+                currLink.addClass("active");
+            }
+            else {
+                currLink.removeClass("active");
+            }
+        }
+    });
+}
+
 // functions to help manipulating cookies
-function setCookie(cname,cvalue,exdays){
-   var d = new Date();
-   d.setTime(d.getTime() + (exdays*24*60*60*1000));
-   var expires = "expires="+ d.toUTCString();
-   document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires=" + d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 
 function getCookie(cname) {
-   var name = cname + "=";
-   var decodedCookie = decodeURIComponent(document.cookie);
-   var ca = decodedCookie.split(';');
-   for (var i = 0; i <ca.length; i++) {
-       var c = ca[i];
-       while (c.charAt(0)==' '){
-           c=c.substring(1);
-       }
-       if (c.indexOf(name)==0){
-           return c.substring(name.length, c.length);
-       }
-   }
-   return "";
-
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
 }
 
 function checkEmail(inputtxt, type) {
@@ -302,38 +331,3 @@ function phonenumber(inputtxt) {
         return false;
     }
 }
-
-function onScroll1() {
-    var scrollPos = $(document).scrollTop() + 130;
-    var $menuParent = $('#menu-item-parent a');
-    $menuParent.each(function () {
-        var currLink = $(this);
-        var refElement = $(currLink.attr("href"));
-        if (refElement.position().top <= scrollPos && refElement.position().top + refElement.outerHeight() > scrollPos) {
-            $menuParent.removeClass("active");
-            currLink.parent().addClass("active");
-        }
-        else {
-            currLink.parent().removeClass("active");
-        }
-    });
-}
-
-function onScroll2() {
-    var scrollPos = $(document).scrollTop();
-    var $menuSoluA = $('.menu-solution a');
-    $menuSoluA.each(function () {
-        var currLink = $(this);
-        var refElement = $(currLink.attr("href"));
-        if (refElement.position()) {
-            if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
-                $menuSoluA.removeClass("active");
-                currLink.addClass("active");
-            }
-            else {
-                currLink.removeClass("active");
-            }
-        }
-    });
-}
-
