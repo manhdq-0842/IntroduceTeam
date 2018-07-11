@@ -244,7 +244,7 @@ input[type="button"] {
   color: #999999;
 }
 .person .name:hover {
-  color: #171717!important;
+  color: #171717 !important;
 }
 .box-more:hover,
 .person-meta .title:hover {
@@ -1150,6 +1150,9 @@ img {
   flex-wrap: wrap;
   justify-content: center;
 }
+.benefit {
+  margin-bottom: 20px;
+}
 .benefit.col-md-4 {
   padding: 15px 15px 20px;
   overflow: hidden;
@@ -1239,7 +1242,6 @@ img {
 }
 .banner-img img {
   width: 100% !important;
-  height: 100% !important;
 }
 @media only screen and (max-width: 1200px) {
   .banner-head-n {

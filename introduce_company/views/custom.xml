@@ -5,7 +5,6 @@
         <field name="inherit_id" ref="base.view_company_form"/>
         <field name="arch" type="xml">
             <xpath expr="//sheet/notebook/page/group/group/field[@name='partner_id']" position="after">
-                <field name="x_image" widget='image' class="oe_avatar"/>
                 <field name="x_partner_vn" placeholder="nhập tên"/>
             </xpath>
             <xpath expr="//sheet/notebook/page/group/group/field[@name='report_header']" position="before">

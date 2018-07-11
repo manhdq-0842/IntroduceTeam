@@ -183,7 +183,7 @@
                     </div>
                     <div class="three-benefit">
                         <t t-foreach="odoo" t-as="odoo">
-                            <div class="benefit col-md-4">
+                            <div class="benefit col-xs-12 col-sm-6 col-md-3">
                                 <div class="benefit-container-img">
                                     <img class="benefit-img img-responsive"
                                          t-att-src="'/web/image?model=product.template&amp;id=%s&amp;field=image' % (odoo.id)"/>
