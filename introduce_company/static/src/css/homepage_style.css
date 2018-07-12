@@ -958,9 +958,11 @@ img {
   color: #ffffff;
 }
 .banner {
+  overflow: hidden;
   height: 658px;
 }
 .banner-head-y {
+  overflow: hidden;
   height: 618px;
 }
 .carousel-caption {
@@ -1083,7 +1085,7 @@ img {
   font-size: 24px;
   line-height: 22px;
   font-weight: bold;
-  background-color: red;
+  background-color: #f44336;
   display: block;
   padding: 10px;
   float: left;
@@ -1214,10 +1216,10 @@ img {
 .modal-content table tr td .error-question {
   border: 1px solid red !important;
 }
-.solution-oinsight .reason {
+.reason-oinsight .reason {
   margin-bottom: 20px;
 }
-.solution-oinsight .reason-txt .title {
+.reason-oinsight .reason-txt .title {
   padding-top: 0;
   padding-right: 30px;
   line-height: 24px;
@@ -1228,16 +1230,16 @@ img {
   z-index: 1;
   color: #333333;
 }
-.solution-oinsight .reason-txt .content p {
+.reason-oinsight .reason-txt .content p {
   line-height: 22px;
   font-size: 16px;
   margin: 0 0 15px;
   color: #777777;
 }
-.solution-oinsight .reason:hover .reason-txt .title {
+.reason-oinsight .reason:hover .reason-txt .title {
   color: #f44336;
 }
-.solution-oinsight .reason:hover .reason-txt .content p {
+.reason-oinsight .reason:hover .reason-txt .content p {
   color: #333333;
 }
 .banner-img img {
@@ -1292,9 +1294,6 @@ img {
     font-size: 25px;
     line-height: 25px;
   }
-  .solution-item:hover .solution-info {
-    display: none;
-  }
   .solution-item:hover .solution-content {
     margin-bottom: 0;
   }
@@ -1326,7 +1325,7 @@ img {
     font-size: 14px !important;
   }
   #Advisory {
-    padding: 16px;
+    padding: 35px;
   }
   .reason-item {
     display: flex;
@@ -1337,6 +1336,20 @@ img {
   }
   .reason-txt {
     text-align: center;
+  }
+  .reason-oinsight {
+    padding-top: 0!important;
+  }
+  .reason-oinsight .container {
+    padding: 0!important;
+  }
+  .reason-oinsight .col-md-6,
+  .reason-oinsight col-md-12,
+  .reason-oinsight .col-xs-5,
+  .reason-oinsight .col-sm-5,
+  .reason-oinsight .col-xs-7,
+  .reason-oinsight .col-sm-7 {
+    padding: 0;
   }
 }
 @media only screen and (max-width: 768px) {
@@ -1379,7 +1392,7 @@ img {
     right: 0!important;
   }
   .valign-top {
-    margin-top: 0 !important;
+    margin-top: 20 !important;
   }
   .three-benefit {
     display: block;
@@ -1428,7 +1441,10 @@ img {
     line-height: 10px;
   }
   .container {
-    padding: 0 !important;
+    padding: 15px !important;
+  }
+  .reason-img .img-responsive {
+    width: 100%;
   }
 }
 @media only screen and (min-width: 768px) {

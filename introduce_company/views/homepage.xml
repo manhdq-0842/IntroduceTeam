@@ -280,10 +280,10 @@
                 </div>
 
                 <!--Introduce-->
-                <div id="Introduce-OIsight" class="solution-oinsight container">
+                <div id="Introduce-OIsight" class="reason-oinsight container">
                     <div class="container" style="display: flex;">
                         <div class="col vc_col-sm-12 vc_col-lg-6 vc_col-md-8 vc_col-xs-12 col12  element-animate-false valign-top"
-                             style="margin: 30px auto 10px" data-effect="none" data-align="left" data-margin="false">
+                             style="margin: 70px auto 10px" data-effect="none" data-align="left" data-margin="false">
                             <div class="col-inner" style="">
                                 <h2 t-if="vi"
                                     style="font-size: 30px;color: #333333;line-height: 40px;text-align: center"
@@ -324,11 +324,11 @@
                         <t t-foreach="reason" t-as="reason">
                             <a href="#" class="reason-item">
                                 <div class="col-md-6 reason">
-                                    <div class="reason-img col-xs-12 col-sm-3 col-md-3">
+                                    <div class="reason-img col-xs-5 col-sm-5 col-md-3">
                                         <img class="img-responsive"
                                              t-att-src="'/web/image?model=product.template&amp;id=%s&amp;field=image' % (reason.id)"/>
                                     </div>
-                                    <div class="reason-txt col-xs-12 col-sm-9 col-md-9">
+                                    <div class="reason-txt col-xs-7 col-sm-7 col-md-9">
                                         <div class="title col-md-12">
                                             <t t-if="vi" t-esc="reason.x_title_vn"/>
                                             <t t-else="" t-esc="reason.name"/>

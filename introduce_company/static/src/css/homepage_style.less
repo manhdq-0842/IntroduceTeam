@@ -971,10 +971,12 @@ img {
 //Banner
 
 .banner {
+  overflow: hidden;
   height: 658px;
 }
 
 .banner-head-y {
+  overflow: hidden;
   height: 618px;
 }
 
@@ -1113,7 +1115,7 @@ img {
     font-size: 24px;
     line-height: 22px;
     font-weight: bold;
-    background-color: red;
+    background-color: #f44336;
     display: block;
     padding: 10px;
     float: left;
@@ -1272,7 +1274,7 @@ img {
   border: 1px solid red !important;
 }
 
-.solution-oinsight {
+.reason-oinsight {
   .reason {
     margin-bottom: 20px;
   }
@@ -1295,7 +1297,7 @@ img {
   }
 }
 
-.solution-oinsight .reason:hover {
+.reason-oinsight .reason:hover {
   .reason-txt .title {
     color: #f44336;
   }
@@ -1368,10 +1370,6 @@ img {
     }
   }
 
-  .solution-item:hover .solution-info {
-    display: none;
-  }
-
   .solution-item:hover .solution-content {
     margin-bottom: 0;
   }
@@ -1406,11 +1404,8 @@ img {
     font-size: 14px !important;
   }
 
-  //.banner-title {
-  //  top: 5%;
-  //}
   #Advisory {
-    padding: 16px;
+    padding: 35px;
   }
 
   .reason-item {
@@ -1424,6 +1419,16 @@ img {
 
   .reason-txt {
     text-align: center;
+  }
+
+  .reason-oinsight {
+    padding-top: 0!important;
+    .container{
+        padding: 0!important;
+    }
+    .col-md-6,col-md-12, .col-xs-5, .col-sm-5, .col-xs-7, .col-sm-7{
+      padding:0;
+    }
   }
 }
 
@@ -1478,7 +1483,7 @@ img {
   }
 
   .valign-top {
-    margin-top: 0 !important;
+    margin-top: 20 !important;
   }
 
   .three-benefit {
@@ -1549,7 +1554,10 @@ img {
   }
 
   .container {
-    padding: 0 !important;
+    padding: 15px !important;
+  }
+  .reason-img .img-responsive{
+    width: 100%;
   }
 }
 
