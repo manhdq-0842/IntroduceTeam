@@ -1108,7 +1108,6 @@ img {
 .list-solution .solution-items .solution-img {
   position: relative;
   background: #000;
-  opacity: 0.8;
   border-radius: 6px;
 }
 .solution-item:hover {

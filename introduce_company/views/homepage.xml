@@ -322,26 +322,24 @@
                     </div>
                     <div class="col-md-12">
                         <t t-foreach="reason" t-as="reason">
-                            <a href="#" class="reason-item">
-                                <div class="col-md-6 reason">
-                                    <div class="reason-img col-xs-5 col-sm-5 col-md-3">
-                                        <img class="img-responsive"
-                                             t-att-src="'/web/image?model=product.template&amp;id=%s&amp;field=image' % (reason.id)"/>
+                            <div class="col-md-6 reason">
+                                <div class="reason-img col-xs-5 col-sm-5 col-md-3">
+                                    <img class="img-responsive"
+                                         t-att-src="'/web/image?model=product.template&amp;id=%s&amp;field=image' % (reason.id)"/>
+                                </div>
+                                <div class="reason-txt col-xs-7 col-sm-7 col-md-9">
+                                    <div class="title col-md-12">
+                                        <t t-if="vi" t-esc="reason.x_title_vn"/>
+                                        <t t-else="" t-esc="reason.name"/>
                                     </div>
-                                    <div class="reason-txt col-xs-7 col-sm-7 col-md-9">
-                                        <div class="title col-md-12">
-                                            <t t-if="vi" t-esc="reason.x_title_vn"/>
-                                            <t t-else="" t-esc="reason.name"/>
-                                        </div>
-                                        <div class="content col-md-12">
-                                            <p>
-                                                <t t-if="vi" t-esc="reason.x_description_vn"/>
-                                                <t t-else="" t-esc="reason.x_description"/>
-                                            </p>
-                                        </div>
+                                    <div class="content col-md-12">
+                                        <p>
+                                            <t t-if="vi" t-esc="reason.x_description_vn"/>
+                                            <t t-else="" t-esc="reason.x_description"/>
+                                        </p>
                                     </div>
                                 </div>
-                            </a>
+                            </div>
                         </t>
                     </div>
                 </div>
