@@ -9,11 +9,13 @@ odoo.define("introduce_company.homepage", function (require) {
     var $menuParent = $('#menu-item-parent a');
     var checkOdooHeader = 0;
     var header = $('.header');
+    var $toTop = $('.to-top');
 
     //status header- top
     var offsetHeader = (header.offset().top);
     if (offsetHeader > 70) {
         header.addClass('active');
+        $toTop.addClass('hidden');
     }
 
     $('.list-solution a').click(function (e) {
@@ -39,9 +41,9 @@ odoo.define("introduce_company.homepage", function (require) {
 
         if (height >= 50) {
             header.addClass('active');
-            $('.to-top').removeClass('hidden');
+            $toTop.removeClass('hidden');
         } else {
-            $('.to-top').addClass('hidden');
+            $toTop.addClass('hidden');
         }
 
         if (height >= 800) {
@@ -65,7 +67,7 @@ odoo.define("introduce_company.homepage", function (require) {
     });
 
     //  Function for scroliing to top
-    $('.to-top').click(function () {
+    $toTop.click(function () {
         $("html, body").animate({
             scrollTop: 0
         }, 600);
