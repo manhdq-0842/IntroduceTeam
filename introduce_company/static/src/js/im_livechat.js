@@ -1,6 +1,5 @@
 odoo.define('introduce_company.im_livechat', function (require) {
     var time = require('web.time');
-    var ajax = require('web.ajax');
     var LivechatButton = require('im_livechat.im_livechat').LivechatButton;
     LivechatButton.include({
         add_message: function (data, options) {
@@ -31,6 +30,6 @@ odoo.define('introduce_company.im_livechat', function (require) {
             } else {
                 this.messages.push(msg);
             }
-        },
+        }
     })
 });

@@ -3,13 +3,6 @@
 <odoo>
     <data>
         <!--question-->
-        <record model="ir.actions.act_window" id="question_action">
-            <field name="name">Question</field>
-            <field name="res_model">introduce.question</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
-        </record>
-
         <record id="question_form" model="ir.ui.view">
             <field name="name">introduce.question.form</field>
             <field name="model">introduce.question</field>
@@ -51,6 +44,13 @@
                     <field name="question" widget="html"/>
                 </tree>
             </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="question_action">
+            <field name="name">Question</field>
+            <field name="res_model">introduce.question</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
         </record>
 
         <menuitem id="main_question_menu" name="Question"/>
