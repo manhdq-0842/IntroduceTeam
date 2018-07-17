@@ -3,6 +3,10 @@ odoo.define("introduce_company.homepage", function (require) {
     var ajax = require('web.ajax');
     require("web.dom_ready");
 
+     // ajax.jsonRpc('/contact-ajax', 'call', {}).then(function (data) {
+     //            $('body').append(data);
+     //            });
+
     var odooHeader = $('#oe_main_menu_navbar').length;
     var menuUl = $('#menu_main_ul');
     var $menuSoluA = $('.menu-solution a');
