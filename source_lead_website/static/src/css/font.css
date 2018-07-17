@@ -1,0 +1,314 @@
+@font-face {
+    font-family: icomoon;
+    src: url('/introduce_company/static/src/font/icomoon.woff');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: icomoon;
+    src: url('/introduce_company/static/src/font/icomoon.woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: icomoon;
+    src: url('/introduce_company/static/src/font/icomoon.woff');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: icomoon;
+    src: url('/introduce_company/static/src/font/icomoon.woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: icomoon;
+    src: url('/introduce_company/static/src/font/icomoon.woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: icomoon;
+    src: url('/introduce_company/static/src/font/icomoon.woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: icomoon;
+    src: url('/introduce_company/static/src/font/icomoon.woff');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: icomoon;
+    src: url('/introduce_company/static/src/font/icomoon.woff');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: icomoon;
+    src: url('/introduce_company/static/src/font/icomoon.woff');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Raleway;
+    src: url('/introduce_company/static/src/font/Raleway.woff2');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Raleway;
+    src: url('/introduce_company/static/src/font/icomoon.woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Raleway;
+    src: url('/introduce_company/static/src/font/Raleway.woff2');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Raleway;
+    src: url('/introduce_company/static/src/font/Raleway.woff2');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Raleway;
+    src: url('/introduce_company/static/src/font/Raleway.woff2');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Raleway;
+    src: url('/introduce_company/static/src/font/Raleway.woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Raleway;
+    src: url('/introduce_company/static/src/font/Raleway.woff2');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Raleway;
+    src: url('/introduce_company/static/src/font/Raleway.woff2');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Raleway;
+    src: url('/introduce_company/static/src/font/Raleway.woff2');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Raleway SemiBold;
+    src: url('/introduce_company/static/src/font/RalewaySemiBold.woff2');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Raleway SemiBold;
+    src: url('/introduce_company/static/src/font/RalewaySemiBold.woff2');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Raleway SemiBold;
+    src: url('/introduce_company/static/src/font/RalewaySemiBold.woff2');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Raleway SemiBold;
+    src: url('/introduce_company/static/src/font/RalewaySemiBold.woff2');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Raleway SemiBold;
+    src: url('/introduce_company/static/src/font/RalewaySemiBold.woff2');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Raleway SemiBold;
+    src: url('/introduce_company/static/src/font/RalewaySemiBold.woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Raleway SemiBold;
+    src: url('/introduce_company/static/src/font/RalewaySemiBold.woff2');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Raleway SemiBold;
+    src: url('/introduce_company/static/src/font/RalewaySemiBold.woff2');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Raleway SemiBold;
+    src: url('/introduce_company/static/src/font/RalewaySemiBold.woff2');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Roboto Condensed;
+    src: url('/website_vezo/static/src/font/SF-Pro-Display-Black.otf');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Roboto Condensed;
+    src: url('/website_vezo/static/src/font/SF-Pro-Display-BlackItalic.otf');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Roboto Condensed;
+    src: url('/introduce_company/static/src/font/RobotoCondensed-Bold.ttf');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Roboto Condensed;
+    src: url('/introduce_company/static/src/font/RobotoCondensed-BoldItalic.ttf');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Roboto Condensed;
+    src: url('/introduce_company/static/src/font/RobotoCondensed-Regular.ttf');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Roboto Condensed;
+    src: url('/introduce_company/static/src/font/RobotoCondensed-Italic.ttf');
+    font-weight: 800;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Roboto Condensed;
+    src: url('/introduce_company/static/src/font/RobotoCondensed-Regular.ttf');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Roboto Condensed;
+    src: url('/introduce_company/static/src/font/RobotoCondensed-Italic.ttf');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Roboto Condensed;
+    src: url('/introduce_company/static/src/font/RobotoCondensed-Regular.ttf');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Roboto Condensed;
+    src: url('/introduce_company/static/src/font/RobotoCondensed-Italic.ttf');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Roboto Condensed;
+    src: url('/introduce_company/static/src/font/RobotoCondensed-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Roboto Condensed;
+    src: url('/introduce_company/static/src/font/RobotoCondensed-LightItalic.ttf');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Roboto Condensed;
+    src: url('/introduce_company/static/src/font/RobotoCondensed-Regular.ttf');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Roboto Condensed;
+    src: url('/introduce_company/static/src/font/RobotoCondensed-Italic.ttf');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Roboto Condensed;
+    src: url('/introduce_company/static/src/font/RobotoCondensed-Regular.ttf');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Roboto Condensed;
+    src: url('/introduce_company/static/src/font/RobotoCondensed-Italic.ttf');
+    font-weight: 200;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Roboto Condensed;
+    src: url('/introduce_company/static/src/font/RobotoCondensed-Regular.ttf');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Roboto Condensed;
+    src: url('/introduce_company/static/src/font/RobotoCondensed-Italic.ttf');
+    font-weight: 100;
+    font-style: italic;
+}

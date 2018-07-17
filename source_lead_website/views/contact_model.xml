@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <data>
+        <record id="view_contact_form" model="ir.ui.view">
+            <field name="name">source_lead_website.contact_us.form</field>
+            <field name="model">source_lead_website.contact_us</field>
+            <field name="arch" type="xml">
+                <form string="Contact Us">
+                    <header>
+                        <button name="action_confirm" string="Confirm" type="object" class="oe_highlight"
+                                attrs="{'invisible':[('status','!=','wait')]}"/>
+                        <button name="action_done" string="Done" type="object" class="oe_highlight"
+                                attrs="{'invisible':[('status','!=','in_progress')]}"/>
+                        <field name="status" widget="statusbar" statusbar_visible="wait,in_progress,done"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="name" placeholder="Name"/>
+                            <field name="phone" placeholder="Phone"/>
+                            <field name="email" placeholder="Email"/>
+                            <field name="address" placeholder="Address"/>
+                            <field name="create_date"/>
+                        </group>
+                        <notebook>
+                            <page string="Question">
+                                <field name="question" placeholder="Question"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_contact_tree" model="ir.ui.view">
+            <field name="name">source_lead_website.contact_us.tree</field>
+            <field name="model">source_lead_website.contact_us</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree string="Question">
+                    <field name="name"/>
+                    <field name="status"/>
+                    <field name="create_date"/>
+                    <field name="question" widget="html"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="contact_action">
+            <field name="name">Contact_us</field>
+            <field name="res_model">source_lead_website.contact_us</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_contact_tree"/>
+        </record>
+
+        <menuitem id="main_contact_menu" name="Contact Us"/>
+        <menuitem id="contact_menu" name="Source Lead" parent="main_contact_menu"/>
+        <menuitem id="contact_main" name="Website" parent="contact_menu" action="contact_action"/>
+
+
+        <!--Email-->
+        <record id="view_email_form" model="ir.ui.view">
+            <field name="name">email.config.form</field>
+            <field name="model">email.config</field>
+            <field name="arch" type="xml">
+
+                <form string="Show">
+                    <xpath expr="//button[@name='action_cancel']" position="replace">
+                    </xpath>
+                    <header>
+                        <button style="margin-top: 40px; margin-bottom: 40px;" string="Apply" type="object"
+                                name="set_values" class="oe_highlight btn-apply"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <kanban>
+                                <span class="label-position" style="margin-left:20px">Show item</span>
+                                <div class="col-md-12" style="display:flex">
+
+                                    <div  class="col-md-6">
+                                    <group>
+                                        <field name="isShowPhone"/>
+                                        <field name="isShowEmail"/>
+                                        <field name="isShowAddress"/>
+                                        <field name="isShowQuestion"/>
+                                        <field name="isShowName"/>
+                                    </group>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <group>
+                                            <field name="isCheckEmail"/>
+                                            <field name="isCheckPhone"/>
+                                        </group>
+                                    </div>
+                                </div>
+                                <div class="choose-view o_group_col_12">
+                                    <link rel="stylesheet" type="text/css"
+                                          href="/source_lead_website/static/src/css/contact_model_style.css"/>
+                                    <div class="chose-color col-md-6">
+                                        <div class="label-position">Color:</div>
+                                        <div class="col-md-12 color-item">
+                                            <span class="title-color">Background Color:</span>
+                                            <div class="color-background"/>
+                                            <field class="input-color" name="backgroundColor"/>
+                                        </div>
+                                        <div class="col-md-12 color-item">
+                                            <span class="title-color">Text Button Color:</span>
+                                            <div class="color-background"/>
+                                            <field class="input-color col-md-6 " name="textColor"/>
+                                        </div>
+                                        <div class="col-md-12 color-item">
+                                            <span class="title-color">Button Color:</span>
+                                            <div class="color-background"/>
+                                            <field class="input-color" name="btnColor"/>
+                                        </div>
+                                        <div class="col-md-12 color-item">
+                                            <span class="title-color">Text Button Color:</span>
+                                            <div class="color-background"/>
+                                            <field class="input-color" name="txtBtnColor"/>
+                                        </div>
+                                    </div>
+                                    <div class="position  col-md-6">
+                                        <div class="label-position">Position:</div>
+                                        <ul class="menu-position">
+                                            <li class="active" name="leftmid">
+                                                <a href="#">
+                                                    <img src="/source_lead_website/static/src/img/left-mid.png"/>
+                                                </a>
+                                            </li>
+                                            <li name="leftbottom">
+                                                <a href="#">
+                                                    <img src="/source_lead_website/static/src/img/left-bottom.png"/>
+                                                </a>
+                                            </li>
+                                            <li name="rightbottom">
+                                                <a href="#">
+                                                    <img src="/source_lead_website/static/src/img/right-bottom.png"/>
+                                                </a>
+                                            </li>
+                                            <li name="rightmid">
+                                                <a href="#">
+                                                    <img src="/source_lead_website/static/src/img/right-mid.png"/>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <field name="position" class="select hidden"/>
+                                    </div>
+                                    <script src="/source_lead_website/static/src/js/contact_model_script.js"/>
+                                </div>
+                            </kanban>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="email_action">
+            <field name="name">Email</field>
+            <field name="res_model">email.config</field>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+            <field name="view_id" ref="view_email_form"/>
+        </record>
+
+        <menuitem id="email_menu"
+                  name="Setting"
+                  parent="contact_menu"
+                  action="email_action"
+                  sequence="50"/>
+    </data>
+</odoo>

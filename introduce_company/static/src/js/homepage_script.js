@@ -81,7 +81,7 @@ odoo.define("introduce_company.homepage", function (require) {
     });
 
 
-    //form question
+    //form question ajax
     $('#btn_send').click(function () {
         var name = $('#contact_name').val();
         var phone = $('#contact_phone').val();
@@ -105,12 +105,10 @@ odoo.define("introduce_company.homepage", function (require) {
                     $modalSuccess.modal('toggle');
                 }
             });
-        } else {
-
         }
     });
 
-    // footer email
+    // footer email ajax
     $('#footer_subscribe').click(function (e) {
         e.preventDefault();
         var email = $('#footer_email').val();
@@ -127,7 +125,6 @@ odoo.define("introduce_company.homepage", function (require) {
                 }
             });
         }
-
     });
 
     //show menu mobi-header
@@ -301,6 +298,7 @@ function getCookie(cname) {
     return "";
 }
 
+//check email
 function checkEmail(inputtxt, type) {
     var filter = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
 

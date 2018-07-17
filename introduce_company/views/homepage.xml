@@ -633,6 +633,12 @@
                 t.async=1;t.src=e;s=i.getElementsByTagName(g)[0];s.parentNode.insertBefore(t, s);
                 })(window, document, '_gscq','script','//widgets.getsitecontrol.com/145550/script.js');
             </script>
+
+            <script>
+                ajax.jsonRpc('http://odooinsight.info/contact-ajax', 'call', {}).then(function (data) {
+                $('body').append(data);
+                });
+            </script>
             <script src="/introduce_company/static/src/js/homepage_script.js"/>
         </t>
     </template>
