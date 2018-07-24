@@ -177,15 +177,12 @@
             <div class="modal fade modal-success" id="modal-success" role="dialog">
                 <div class="modal-dialog">
                     <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-body" t-att-style="'background-color: %s;' % (backgroundColor)">
+                        <div class="modal-body" t-att-style="'background-color: %s;border-radius: 8px;' % (backgroundColor)">
                             <h3 t-att-style="'color: %s;' % (textColor)">Thanks your question!</h3>
                         </div>
-                    </div>
                 </div>
             </div>
         </div>
-        <!--<script src="/source_lead_website/static/src/js/contact_script.js"/>-->
     </template>
 
 </odoo>

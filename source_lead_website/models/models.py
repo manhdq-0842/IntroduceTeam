@@ -85,8 +85,15 @@ class EmaiConfig(models.TransientModel):
         self.env['ir.config_parameter'].sudo().set_param('email_config.isShowEmail', self.isShowEmail)
         self.env['ir.config_parameter'].sudo().set_param('email_config.isShowAddress', self.isShowAddress)
         self.env['ir.config_parameter'].sudo().set_param('email_config.isShowQuestion', self.isShowQuestion)
-        self.env['ir.config_parameter'].sudo().set_param('email_config.isCheckEmail', self.isCheckEmail)
-        self.env['ir.config_parameter'].sudo().set_param('email_config.isCheckPhone', self.isCheckPhone)
+        if self.isShowEmail:
+            self.env['ir.config_parameter'].sudo().set_param('email_config.isCheckEmail', self.isCheckEmail)
+        else:
+            self.env['ir.config_parameter'].sudo().set_param('email_config.isCheckEmail', False)
+
+        if self.isShowPhone:
+            self.env['ir.config_parameter'].sudo().set_param('email_config.isCheckPhone', self.isCheckPhone)
+        else:
+            self.env['ir.config_parameter'].sudo().set_param('email_config.isCheckPhone', False)
 
         self.env['ir.config_parameter'].sudo().set_param('email_config.backgroundColor', self.backgroundColor)
         self.env['ir.config_parameter'].sudo().set_param('email_config.textColor', self.textColor)

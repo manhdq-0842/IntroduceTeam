@@ -76,9 +76,6 @@
                                 <img class="normal-logo" style="max-width:284px;max-height:60px;"
                                      t-att-src="'data:image/png;base64,' + to_text(team.logo)"
                                      alt="Odoo Insight"/>
-                                <!--<img class="fixed-logo" style="max-width:284px;max-height:48px;margin-top:-24px"-->
-                                <!--t-att-src="'/web/image?model=res.company&amp;id=%s&amp;field=logo' % (team.id)"-->
-                                <!--alt="Odoo Insight"/>-->
                             </a>
                         </div>
 

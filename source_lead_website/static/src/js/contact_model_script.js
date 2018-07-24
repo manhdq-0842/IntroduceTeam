@@ -102,5 +102,4 @@ $(document).ready(function () {
 
     $('.sp-container').addClass('hidden');
 
-
 });

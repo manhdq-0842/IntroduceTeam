@@ -82,8 +82,8 @@
 
                                         <div class="col-md-6">
                                             <group>
-                                                <field name="isShowPhone"/>
                                                 <field name="isShowEmail"/>
+                                                <field name="isShowPhone"/>
                                                 <field name="isShowAddress"/>
                                                 <field name="isShowQuestion"/>
                                                 <field name="isShowName"/>
@@ -91,8 +91,8 @@
                                         </div>
                                         <div class="col-md-6">
                                             <group>
-                                                <field name="isCheckEmail"/>
-                                                <field name="isCheckPhone"/>
+                                                <field name="isCheckEmail" attrs="{'invisible': [('isShowEmail', '!=', True)]}"/>
+                                                <field name="isCheckPhone" attrs="{'invisible': [('isShowPhone', '!=', True)]}"/>
                                             </group>
                                         </div>
                                     </div>
