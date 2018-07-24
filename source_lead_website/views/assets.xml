@@ -6,17 +6,18 @@
             <link rel="stylesheet" type="text/css" href="/source_lead_website/static/src/css/contact_style.css"/>
             <link rel="stylesheet" type="text/css" href="/source_lead_website/static/src/css/contact_model_style.css"/>
         </xpath>
-        <xpath expr="script[last()]" position="after">
-            <script src="/source_lead_website/static/src/js/contact_script.js"/>
+    </template>
+
+    <template id="mystyle1" name="My style" inherit_id="website.assets_backend">
+        <xpath expr="link[last()]" position="after">
+            <link rel="stylesheet" type="text/css" href="/source_lead_website/static/src/css/contact_style.css"/>
+            <link rel="stylesheet" type="text/css" href="/source_lead_website/static/src/css/contact_model_style.css"/>
         </xpath>
     </template>
 
-    <template id="my_js" inherit_id="website.assets_editor" name="My Js">
-        <xpath expr="link[last()]" position="after">
-
-        </xpath>
-        <xpath expr="script[last()]" position="after">
-
+    <template id="myasset" name="My asset" inherit_id="web.assets_common">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/source_lead_website/static/src/js/contact_script.js"/>
         </xpath>
     </template>
 </odoo>

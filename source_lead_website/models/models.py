@@ -49,6 +49,9 @@ class EmaiConfig(models.TransientModel):
 
     position = fields.Selection(selection=(['leftmid', 'Left Mid'], ['leftbottom', 'Left Bottom'], ['rightbottom', 'Right Bottom'], ['rightmid', 'Right Mid']), default="leftbottom")
 
+    txtHeader = fields.Char(string="Text Header", default="Contact Us")
+    txtBtn = fields.Char(string="Text Button", default="Submit")
+
     @api.model
     def get_values(self):
         res = super(EmaiConfig, self).get_values()
@@ -67,6 +70,9 @@ class EmaiConfig(models.TransientModel):
             txtBtnColor=(self.env['ir.config_parameter'].sudo().get_param('email_config.txtBtnColor', default="#ff0000")),
 
             position=(self.env['ir.config_parameter'].sudo().get_param('email_config.position')),
+
+            txtHeader=(self.env['ir.config_parameter'].sudo().get_param('email_config.txtHeader', default="Contact Us")),
+            txtBtn=(self.env['ir.config_parameter'].sudo().get_param('email_config.txtBtn', default="Submit")),
 
         )
         return res
@@ -88,3 +94,6 @@ class EmaiConfig(models.TransientModel):
         self.env['ir.config_parameter'].sudo().set_param('email_config.txtBtnColor', self.txtBtnColor)
 
         self.env['ir.config_parameter'].sudo().set_param('email_config.position', self.position)
+
+        self.env['ir.config_parameter'].sudo().set_param('email_config.txtHeader', self.txtHeader)
+        self.env['ir.config_parameter'].sudo().set_param('email_config.txtBtn', self.txtBtn)

@@ -47,7 +47,7 @@
         </record>
 
         <record model="ir.actions.act_window" id="contact_action">
-            <field name="name">Contact_us</field>
+            <field name="name">Customer</field>
             <field name="res_model">source_lead_website.contact_us</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
@@ -56,7 +56,7 @@
 
         <menuitem id="main_contact_menu" name="Contact Us"/>
         <menuitem id="contact_menu" name="Source Lead" parent="main_contact_menu"/>
-        <menuitem id="contact_main" name="Website" parent="contact_menu" action="contact_action"/>
+        <menuitem id="contact_main" name="Customer" parent="contact_menu" action="contact_action"/>
 
 
         <!--Email-->
@@ -64,7 +64,6 @@
             <field name="name">email.config.form</field>
             <field name="model">email.config</field>
             <field name="arch" type="xml">
-
                 <form string="Show">
                     <xpath expr="//button[@name='action_cancel']" position="replace">
                     </xpath>
@@ -75,54 +74,74 @@
                     <sheet>
                         <group>
                             <kanban>
-                                <span class="label-position" style="margin-left:20px">Show item</span>
-                                <div class="col-md-12" style="display:flex">
-
-                                    <div  class="col-md-6">
-                                    <group>
-                                        <field name="isShowPhone"/>
-                                        <field name="isShowEmail"/>
-                                        <field name="isShowAddress"/>
-                                        <field name="isShowQuestion"/>
-                                        <field name="isShowName"/>
-                                    </group>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <group>
-                                            <field name="isCheckEmail"/>
-                                            <field name="isCheckPhone"/>
-                                        </group>
-                                    </div>
-                                </div>
-                                <div class="choose-view o_group_col_12">
+                                <templates>
                                     <link rel="stylesheet" type="text/css"
                                           href="/source_lead_website/static/src/css/contact_model_style.css"/>
-                                    <div class="chose-color col-md-6">
-                                        <div class="label-position">Color:</div>
-                                        <div class="col-md-12 color-item">
-                                            <span class="title-color">Background Color:</span>
-                                            <div class="color-background"/>
-                                            <field class="input-color" name="backgroundColor"/>
+                                    <span class="label-position col-md-12">Show item</span>
+                                    <div class="col-md-12" style="display:flex">
+
+                                        <div class="col-md-6">
+                                            <group>
+                                                <field name="isShowPhone"/>
+                                                <field name="isShowEmail"/>
+                                                <field name="isShowAddress"/>
+                                                <field name="isShowQuestion"/>
+                                                <field name="isShowName"/>
+                                            </group>
                                         </div>
-                                        <div class="col-md-12 color-item">
-                                            <span class="title-color">Text Button Color:</span>
-                                            <div class="color-background"/>
-                                            <field class="input-color col-md-6 " name="textColor"/>
-                                        </div>
-                                        <div class="col-md-12 color-item">
-                                            <span class="title-color">Button Color:</span>
-                                            <div class="color-background"/>
-                                            <field class="input-color" name="btnColor"/>
-                                        </div>
-                                        <div class="col-md-12 color-item">
-                                            <span class="title-color">Text Button Color:</span>
-                                            <div class="color-background"/>
-                                            <field class="input-color" name="txtBtnColor"/>
+                                        <div class="col-md-6">
+                                            <group>
+                                                <field name="isCheckEmail"/>
+                                                <field name="isCheckPhone"/>
+                                            </group>
                                         </div>
                                     </div>
-                                    <div class="position  col-md-6">
+                                    <span class="label-position col-md-12">Font Size</span>
+                                    <div class="col-md-12 set-text">
+                                        <div class="set-text-item col-md-6">
+                                            <span class="title-color">Text Header</span>
+                                            <field name="txtHeader"/>
+                                        </div>
+                                        <div class="set-text-item col-md-6">
+                                            <span class="title-color">Text Button</span>
+                                            <field name="txtBtn"/>
+                                        </div>
+                                    </div>
+                                    <div class="choose-view o_group_col_12">
+                                        <div class="chose-color col-md-12">
+                                            <div class="label-position">Color:</div>
+                                            <link rel='stylesheet'
+                                                  href='/source_lead_website/static/src/css/spectrum.css'/>
+                                            <div class="col-md-6">
+                                                <div class="color-item">
+                                                    <span class="title-color">Background Color:</span>
+                                                    <input type='text' class="chose-color-spectrum"/>
+                                                    <field class="input-color" name="backgroundColor"/>
+                                                </div>
+                                                <div class="color-item">
+                                                    <span class="title-color">Text Button Color:</span>
+                                                    <input type='text' class="chose-color-spectrum"/>
+                                                    <field class="input-color col-md-6 " name="textColor"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="color-item">
+                                                    <span class="title-color">Button Color:</span>
+                                                    <input type='text' class="chose-color-spectrum"/>
+                                                    <field class="input-color" name="btnColor"/>
+                                                </div>
+                                                <div class="color-item">
+                                                    <span class="title-color">Text Button Color:</span>
+                                                    <input type='text' class="chose-color-spectrum"/>
+                                                    <field class="input-color" name="txtBtnColor"/>
+                                                </div>
+                                            </div>
+                                            <script src='/source_lead_website/static/src/js/spectrum.js'/>
+                                        </div>
+                                    </div>
+                                    <div class="choose-view position col-md-12">
                                         <div class="label-position">Position:</div>
-                                        <ul class="menu-position">
+                                        <ul class="menu-position col-md-6">
                                             <li class="active" name="leftmid">
                                                 <a href="#">
                                                     <img src="/source_lead_website/static/src/img/left-mid.png"/>
@@ -145,9 +164,14 @@
                                             </li>
                                         </ul>
                                         <field name="position" class="select hidden"/>
+                                        <div class="col-md-6 preview" id="preview">
+                                            <div class="preview-header"></div>
+                                            <div class="hidden dark-screen"></div>
+                                            <div id="preview-screen"></div>
+                                        </div>
                                     </div>
                                     <script src="/source_lead_website/static/src/js/contact_model_script.js"/>
-                                </div>
+                                </templates>
                             </kanban>
                         </group>
                     </sheet>
@@ -156,7 +180,7 @@
         </record>
 
         <record model="ir.actions.act_window" id="email_action">
-            <field name="name">Email</field>
+            <field name="name">Setting</field>
             <field name="res_model">email.config</field>
             <field name="view_mode">form</field>
             <field name="target">inline</field>

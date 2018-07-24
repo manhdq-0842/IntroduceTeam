@@ -1217,6 +1217,7 @@ img {
 }
 .reason-oinsight .reason {
   margin-bottom: 20px;
+  cursor: pointer;
 }
 .reason-oinsight .reason-txt .title {
   padding-top: 0;

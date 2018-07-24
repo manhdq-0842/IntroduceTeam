@@ -641,7 +641,6 @@
 
             <script>
                 $(document).ready(function () {
-                    console.log('abc');
                     $.ajax({
                         url: '/contact-ajax',
                         type: 'POST',
