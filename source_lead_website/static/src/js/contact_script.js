@@ -3,6 +3,7 @@ odoo.define('source_lead_website.contact_xml', function (require) {
     var ajax = require('web.ajax');
     require("web.dom_ready");
     var $body = $('body');
+
     //click collect form
     $body.off('click').on('click', '.contact-header', function () {
         var $formControl = $('#form_contact');
@@ -96,10 +97,16 @@ odoo.define('source_lead_website.contact_xml', function (require) {
                     $phone.removeClass('error-question');
                 }
                 if (data['success']) {
+                    $('.row-form').addClass('hidden');
+                    $('.contact-footer').addClass('hidden');
+                    $('.submit-success').removeClass('hidden');
+                    $('#form_contact').css('bottom', '275px');
+
                     // turn off modal question turn on modal success
-                    var $modalSuccess = $('#form_vertical').find('#modal-success');
-                    $modalForm.modal('toggle');
-                    $modalSuccess.modal('toggle');
+                    if ($('#form_vertical').length > 0) {
+                        $('#form_vertical').find('#modal-success').modal('toggle');
+                        $modalForm.modal('toggle');
+                    }
                 }
             }
         });

@@ -33,7 +33,7 @@
   }
   .contact-body {
     padding: 15px 15px 0 15px;
-    display: flex;
+    display: block;
     align-items: center;
   }
   .contact-body table{
@@ -125,6 +125,7 @@
     opacity: 1;
   }
   .contact-body {
+    display: block;
     padding: 15px 20px 0 20px;
   }
   .form-control {
@@ -270,8 +271,28 @@
 }
 
 .contact-body .name{
+  font-size: 14px;
+  font-style: normal;
   margin-bottom: 5px;
   text-align: left;
+}
+
+.submit-success{
+  display: flex;
+    height: 200px;
+    justify-content: center;
+    align-items: center;
+  .title{
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .txt{
+    font-size: 16px;
+  }
+}
+
+.notShow{
+  display: none;
 }
 @media (max-width: 768px) {
   #modal-success {

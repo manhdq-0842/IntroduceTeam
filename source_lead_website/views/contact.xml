@@ -1,20 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <template id="contact_bottom" name="Contact">
+        <span class="my-color hidden" t-att-color="textColor"/>
         <div class="container-form" t-att-style="'%s' % ('right:50px;' if not leftbottom else 'left:50px') ">
             <div id="form_contact" class="collect"
                  t-att-style="'background-color: %s' % (backgroundColor) ">
                 <div class="contact-header">
-                    <p class="title" t-att-style="'color: %s;' % (textColor)">
+                    <p class="title my-color">
                         <t t-esc="txtHeader"/>
                     </p>
                     <span id="contact-close" class="contact-close">
                         <i class="fa fa-angle-up" aria-hidden="true"/>
                     </span>
                 </div>
-                <div class="contact-body" style="display:block">
-                    <div t-if="showname">
-                        <div class="name" t-att-style="'color: %s;' % (textColor)">
+                <div class="contact-body">
+                    <div t-att-class="'row-form isShowDescription %s' %('' if showdescription else 'notShow')"
+                         style="margin: 15px 0;">
+                        <span class="name txtDescription my-color">
+                            <t t-raw="txtDescription"/>
+                        </span>
+                    </div>
+                    <div t-att-class="'row-form isShowName %s' %('' if showname else 'notShow')">
+                        <div class="name my-color">
                             <t>Name</t>
                         </div>
                         <div>
@@ -23,8 +30,8 @@
                                    type="text"/>
                         </div>
                     </div>
-                    <div t-if="showphone">
-                        <div class="name" t-att-style="'color: %s;' % (textColor)">
+                    <div t-att-class="'row-form isShowPhone %s' %('' if showphone else 'notShow')">
+                        <div class="name my-color">
                             <t>Phone</t>
                         </div>
                         <div>
@@ -33,30 +40,33 @@
                                    type="text"/>
                         </div>
                     </div>
-                    <div t-if="showemail">
-                        <div class="name" t-att-style="'color: %s;' % (textColor)">Email</div>
+                    <div t-att-class="'row-form isShowEmail %s' %('' if showemail else 'notShow')">
+                        <div class="name my-color">Email</div>
                         <div>
                             <input id='contact_email' class="form-control" name="contact_email"
                                    required="True"
                                    type="text"/>
                         </div>
                     </div>
-                    <div t-if="showaddress">
-                        <div class="name" t-att-style="'color: %s;' % (textColor)">Address</div>
+                    <div t-att-class="'row-form isShowAddress %s' %('' if showaddress else 'notShow')">
+                        <div class="name my-color">Address</div>
                         <div>
                             <input id='contact_address' class="form-control" name="contact_address"
                                    required="True"
                                    type="text"/>
                         </div>
                     </div>
-                    <div t-if="showquestion">
-                        <div class="name" t-att-style="'color: %s;' % (textColor)">
-                            <t t-if="vi">Câu hỏi</t>
-                            <t t-else="">Question</t>
-                        </div>
+                    <div t-att-class="'row-form isShowQuestion %s' %('' if showquestion else 'notShow')">
+                        <div class="name my-color">Question</div>
                         <div>
                             <textarea id='contact_question' class="form-control" name="description"
                                       style="min-height: 75px;resize: none;" required="True"/>
+                        </div>
+                    </div>
+                    <div class="submit-success hidden">
+                        <div class="name my-color">
+                            <p class="title">Thank you!</p>
+                            <span class="txt">We have write your question.</span>
                         </div>
                     </div>
                 </div>
@@ -68,20 +78,23 @@
                         </span>
                     </button>
                 </div>
+
                 <div class="by-team">
                     <a href="http://odooinsight.info/" target="_blank">
                         <div class="background-team"/>
                         <div>
-                            <span class="by-team-txt">Powered by OIsight</span>
+                            <span class="by-team-txt my-color">Powered by OIsight</span>
                         </div>
                     </a>
                 </div>
-                <!--<script src="/source_lead_website/static/src/js/contact_script.js"/>-->
             </div>
         </div>
+        <script type="text/javascript" src="source_lead_website/static/src/js/change_script.js"/>
+
     </template>
 
     <template id="contact_vertical" name="Contact Us">
+        <span class="my-color hidden" t-att-color="textColor"/>
         <div id="form_vertical" class="collect">
             <div t-if="leftmid" class="envelope left collect-envelope"
                  t-att-style="'background-color: %s;' % (backgroundColor)">
@@ -89,7 +102,8 @@
                 <i class="fa fa-envelope-o" aria-hidden="true"/>
             </div>
 
-            <div t-else="" class="envelope right collect-envelope" t-att-style="'background-color: %s;right:0;' % (backgroundColor)">
+            <div t-else="" class="envelope right collect-envelope"
+                 t-att-style="'background-color: %s;right:0;' % (backgroundColor)">
                 <i class="fa fa-envelope-o" aria-hidden="true"/>
                 <span>Sent to email</span>
             </div>
@@ -99,7 +113,7 @@
                  aria-hidden="false">
                 <div class="modal-dialog" t-att-style="'background-color: %s;' % (backgroundColor)">
                     <div class="contact-header">
-                        <p class="title" t-att-style="'color: %s;' % (textColor)">
+                        <p class="title my-color">
                             <t t-esc="txtHeader"/>
                         </p>
                         <span id="close_modal">
@@ -107,8 +121,14 @@
                         </span>
                     </div>
                     <div class="contact-body">
-                        <div t-if="showname">
-                            <div class="name" t-att-style="'color: %s;' % (textColor)">
+                        <div t-att-class="'row-form isShowDescription %s' %('' if showdescription else 'notShow')"
+                             style="margin: 15px 0;">
+                            <span class="name txtDescription my-color">
+                                <t t-raw="txtDescription"/>
+                            </span>
+                        </div>
+                        <div t-att-class="'row-form isShowName %s' %('' if showname else 'notShow')">
+                            <div class="name my-color">
                                 <t>Name</t>
                             </div>
                             <div>
@@ -117,8 +137,8 @@
                                        type="text"/>
                             </div>
                         </div>
-                        <div t-if="showphone">
-                            <div class="name" t-att-style="'color: %s;' % (textColor)">
+                        <div t-att-class="'row-form isShowPhone %s' %('' if showphone else 'notShow')">
+                            <div class="name my-color">
                                 <t>Phone</t>
                             </div>
                             <div>
@@ -127,27 +147,24 @@
                                        type="text"/>
                             </div>
                         </div>
-                        <div t-if="showemail">
-                            <div class="name" t-att-style="'color: %s;' % (textColor)">Email</div>
+                        <div t-att-class="'row-form isShowEmail %s' %('' if showemail else 'notShow')">
+                            <div class="name my-color">Email</div>
                             <div>
                                 <input id='contact_email' class="form-control" name="contact_email"
                                        required="True"
                                        type="text"/>
                             </div>
                         </div>
-                        <div t-if="showaddress">
-                            <div class="name" t-att-style="'color: %s;' % (textColor)">Address</div>
+                        <div t-att-class="'row-form isShowAddress %s' %('' if showaddress else 'notShow')">
+                            <div class="name my-color">Address</div>
                             <div>
                                 <input id='contact_address' class="form-control" name="contact_address"
                                        required="True"
                                        type="text"/>
                             </div>
                         </div>
-                        <div t-if="showquestion">
-                            <div class="name" t-att-style="'color: %s;' % (textColor)">
-                                <t t-if="vi">Câu hỏi</t>
-                                <t t-else="">Question</t>
-                            </div>
+                        <div t-att-class="'row-form isShowQuestion %s' %('' if showquestion else 'notShow')">
+                            <div class="name my-color">Question</div>
                             <div>
                                 <textarea id='contact_question' class="form-control" name="description"
                                           style="min-height: 75px;resize: none;" required="True"/>
@@ -166,7 +183,7 @@
                         <a href="http://odooinsight.info/" target="_blank">
                             <div class="background-team"/>
                             <div>
-                                <span class="by-team-txt">Powered by OIsight</span>
+                                <span class="by-team-txt my-color">Powered by OIsight</span>
                             </div>
                         </a>
                     </div>
@@ -177,12 +194,14 @@
             <div class="modal fade modal-success" id="modal-success" role="dialog">
                 <div class="modal-dialog">
                     <!-- Modal content-->
-                        <div class="modal-body" t-att-style="'background-color: %s;border-radius: 8px;' % (backgroundColor)">
-                            <h3 t-att-style="'color: %s;' % (textColor)">Thanks your question!</h3>
-                        </div>
+                    <div class="modal-body"
+                         t-att-style="'background-color: %s;border-radius: 8px;' % (backgroundColor)">
+                        <h3 class="my-color">Thanks your question!</h3>
+                    </div>
                 </div>
             </div>
         </div>
+        <script type="text/javascript" src="source_lead_website/static/src/js/change_script.js"/>
     </template>
 
 </odoo>

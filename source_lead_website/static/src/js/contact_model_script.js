@@ -7,7 +7,7 @@ $(document).ready(function () {
         data: JSON.stringify({
             'jsonrpc': "2.0",
             'method': "call",
-            "params": {},
+            "params": {}
         }),
         success: function (data) {
             var content = data['result'];
@@ -98,8 +98,72 @@ $(document).ready(function () {
         $(this).addClass('active');
         var value = '"' + $(this).attr('name') + '"';
         $('.position .select').val(value).change();
+
+        $('.btn .btn-apply').click();
+        var chose = $(this).attr('name');
+        $.ajax({
+        url: '/contact-ajax',
+        type: 'POST',
+        dataType: 'json',
+        contentType: 'application/json',
+        data: JSON.stringify({
+            'jsonrpc': "2.0",
+            'method': "call",
+            "params": {
+                'position': chose
+            }
+        }),
+        success: function (data) {
+            var content = data['result'];
+            $('.container-form').remove();
+            $('#form_vertical').remove();
+            $('#preview-screen').append(content);
+        },
+        error: function (e) {
+            alert('error');
+            console.log(e.message);
+        }
+    });
     });
 
     $('.sp-container').addClass('hidden');
 
+    //change live
+    $('.sheet-container').change(function () {
+        var $btnSend = $('#btn_send');
+        $('.contact-header p').text($('.txtHeader').val());
+
+        $btnSend.find('span').text($('.txtBtn').val());
+
+        $('.my-color').css('color', $('.textColor').val());
+
+        var backgroundColor = $('.backgroundColor').val();
+        $('#form_contact').css('background-color', backgroundColor);
+        $('.envelope').css('background-color', backgroundColor);
+        $('.modal-dialog').css('background-color', backgroundColor);
+
+        $btnSend.css('background-color', $('.btnColor').val());
+
+        $btnSend.find('span').css('color', $('.txtBtnColor').val());
+
+    });
+    $('body').on('click', '.tabShow input[type=checkbox]', function () {
+        var name = $(this).parent().attr('name');
+        var $isShow = $('.contact-body').find('.' + name);
+        if ($isShow.css('display') === 'none') {
+            $isShow.css('display', 'block');
+        } else {
+            $isShow.css('display', 'none');
+        }
+    });
+    $(document).mouseup(function (e) {
+        var $txtDescription = $('.sheet-container .txtDescription .note-editable p');
+        $txtDescription.each(function () {
+            val.color = $(this).val();
+            if ($(this).length > 0 && !$(this).is(e.target) && $(this).has(e.target).length === 0) {
+                var txtDescription = $txtDescription.text();
+                $('.contact-body .txtDescription').text(txtDescription);
+            }
+        });
+    });
 });

@@ -5,6 +5,7 @@ from odoo.http import request
 
 def get_show():
     show_name = request.env['ir.config_parameter'].sudo().get_param('email_config.isShowName')
+    show_description = request.env['ir.config_parameter'].sudo().get_param('email_config.isShowDescription')
     show_phone = request.env['ir.config_parameter'].sudo().get_param('email_config.isShowPhone')
     show_email = request.env['ir.config_parameter'].sudo().get_param('email_config.isShowEmail')
     show_address = request.env['ir.config_parameter'].sudo().get_param('email_config.isShowAddress')
@@ -18,8 +19,10 @@ def get_show():
 
     txtHeader = request.env['ir.config_parameter'].sudo().get_param('email_config.txtHeader')
     txtBtn = request.env['ir.config_parameter'].sudo().get_param('email_config.txtBtn')
+    txtDescription = request.env['ir.config_parameter'].sudo().get_param('email_config.txtDescription')
     return {
         'showname': show_name,
+        'showdescription': show_description,
         'showphone': show_phone,
         'showemail': show_email,
         'showaddress': show_address,
@@ -31,6 +34,7 @@ def get_show():
         'position': position,
         'txtHeader': txtHeader,
         'txtBtn': txtBtn,
+        'txtDescription': txtDescription,
     }
 
 
@@ -80,8 +84,11 @@ class ContactAjax(http.Controller):
 
 class PageAjax(http.Controller):
     @http.route('/contact-ajax', website=True, auth='public', type='json', methods=['POST'])
-    def create_question(self, **kw):
+    def create_question(self, position=None, **kw):
         val = get_show()
+        val.update({
+            'position': position,
+        })
         if val.get('position') == 'leftbottom':
             val.update({
                 'leftbottom': True,

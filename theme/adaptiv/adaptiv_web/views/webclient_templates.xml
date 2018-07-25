@@ -187,7 +187,7 @@
                         <span class="sr-only">Toggle App Menu</span>
                         <i class="fa fa-th fa-lg app-drawer-icon-open"/>
                     </button>
-                    <div class="a_menu_placeholder"><p>fdsafdsa</p></div>
+                    <div class="a_menu_placeholder"></div>
                     <button type="button" class="a_menu_toggler">
                         <span class="sr-only">Toggle Menu</span>
                         <i class="fa fa-bars fa-lg"/>

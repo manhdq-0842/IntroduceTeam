@@ -35,6 +35,7 @@ class EmaiConfig(models.TransientModel):
     _name = 'email.config'
 
     isShowName = fields.Boolean(string="Show Name", default=True)
+    isShowDescription = fields.Boolean(string="Show Description", default=True)
     isShowPhone = fields.Boolean(string="Show Phone", default=True)
     isShowEmail = fields.Boolean(string="Show Email", default=True)
     isShowAddress = fields.Boolean(string="Show Address", default=True)
@@ -51,12 +52,14 @@ class EmaiConfig(models.TransientModel):
 
     txtHeader = fields.Char(string="Text Header", default="Contact Us")
     txtBtn = fields.Char(string="Text Button", default="Submit")
+    txtDescription = fields.Text(string="Text Description", default="Submit")
 
     @api.model
     def get_values(self):
         res = super(EmaiConfig, self).get_values()
         res.update(
             isShowName=Until.convert_boolean_string((self.env['ir.config_parameter'].sudo().get_param('email_config.isShowName', default=True))),
+            isShowDescription=Until.convert_boolean_string((self.env['ir.config_parameter'].sudo().get_param('email_config.isShowDescription', default=True))),
             isShowPhone=Until.convert_boolean_string((self.env['ir.config_parameter'].sudo().get_param('email_config.isShowPhone', default=True))),
             isShowEmail=Until.convert_boolean_string((self.env['ir.config_parameter'].sudo().get_param('email_config.isShowEmail', default=True))),
             isShowAddress=Until.convert_boolean_string((self.env['ir.config_parameter'].sudo().get_param('email_config.isShowAddress', default=True))),
@@ -73,6 +76,7 @@ class EmaiConfig(models.TransientModel):
 
             txtHeader=(self.env['ir.config_parameter'].sudo().get_param('email_config.txtHeader', default="Contact Us")),
             txtBtn=(self.env['ir.config_parameter'].sudo().get_param('email_config.txtBtn', default="Submit")),
+            txtDescription=(self.env['ir.config_parameter'].sudo().get_param('email_config.txtDescription', default="")),
 
         )
         return res
@@ -81,6 +85,7 @@ class EmaiConfig(models.TransientModel):
     def set_values(self):
         super(EmaiConfig, self).set_values()
         self.env['ir.config_parameter'].sudo().set_param('email_config.isShowName', self.isShowName)
+        self.env['ir.config_parameter'].sudo().set_param('email_config.isShowDescription', self.isShowDescription)
         self.env['ir.config_parameter'].sudo().set_param('email_config.isShowPhone', self.isShowPhone)
         self.env['ir.config_parameter'].sudo().set_param('email_config.isShowEmail', self.isShowEmail)
         self.env['ir.config_parameter'].sudo().set_param('email_config.isShowAddress', self.isShowAddress)
@@ -104,3 +109,4 @@ class EmaiConfig(models.TransientModel):
 
         self.env['ir.config_parameter'].sudo().set_param('email_config.txtHeader', self.txtHeader)
         self.env['ir.config_parameter'].sudo().set_param('email_config.txtBtn', self.txtBtn)
+        self.env['ir.config_parameter'].sudo().set_param('email_config.txtDescription', self.txtDescription)
