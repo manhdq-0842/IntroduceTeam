@@ -86,9 +86,11 @@ class PageAjax(http.Controller):
     @http.route('/contact-ajax', website=True, auth='public', type='json', methods=['POST'])
     def create_question(self, position=None, **kw):
         val = get_show()
-        val.update({
-            'position': position,
-        })
+        if position is not None:
+            val.update({
+                'position': position,
+            })
+
         if val.get('position') == 'leftbottom':
             val.update({
                 'leftbottom': True,

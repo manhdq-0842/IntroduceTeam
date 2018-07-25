@@ -98,7 +98,7 @@ $(document).ready(function () {
         $(this).addClass('active');
         var value = '"' + $(this).attr('name') + '"';
         $('.position .select').val(value).change();
-
+        $('.dark-screen').addClass('hidden');
         $('.btn .btn-apply').click();
         var chose = $(this).attr('name');
         $.ajax({
@@ -118,6 +118,7 @@ $(document).ready(function () {
             $('.container-form').remove();
             $('#form_vertical').remove();
             $('#preview-screen').append(content);
+            $('.sheet-container').change()
         },
         error: function (e) {
             alert('error');
