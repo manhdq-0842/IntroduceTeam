@@ -33,7 +33,7 @@
 }
 #form_contact .contact-body {
   padding: 15px 15px 0 15px;
-  display: flex;
+  display: block;
   align-items: center;
 }
 #form_contact .contact-body table {
@@ -83,6 +83,7 @@
 }
 #form_vertical .modal.fade .modal-dialog {
   width: 420px;
+  border-radius: 8px;
   transition: transform 1s ease-out;
   box-shadow: 0 12px 25px 5px rgba(0, 0, 0, 0.4);
   margin: 30px auto!important;
@@ -121,6 +122,7 @@
   opacity: 1;
 }
 #form_vertical .contact-body {
+  display: block;
   padding: 15px 20px 0 20px;
 }
 #form_vertical .form-control {
@@ -161,13 +163,13 @@
   align-items: center;
   position: fixed;
   top: 40%;
-  width: 150px;
   height: 42px;
   background-color: red;
   color: #ffffff;
   cursor: pointer;
   z-index: 201;
   transition: 0.5s;
+  border-radius: 2px;
 }
 #form_vertical .envelope.left {
   left: 0;
@@ -175,7 +177,7 @@
 #form_vertical .envelope .fa-envelope-o {
   font-size: 20px;
   z-index: 10;
-  padding: 10px;
+  padding: 13px;
   font-weight: bold;
 }
 #form_vertical .envelope span {
@@ -187,6 +189,9 @@
 }
 #form_vertical .right.collect-envelope {
   right: -97px !important;
+}
+.form-control:focus {
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(11, 16, 16, 0.6);
 }
 .error-question {
   background-color: #BBDEFB !important;
@@ -255,8 +260,26 @@
   margin: 10px auto;
 }
 .contact-body .name {
+  font-size: 14px;
+  font-style: normal;
   margin-bottom: 5px;
   text-align: left;
+}
+.submit-success {
+  display: flex;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+}
+.submit-success .title {
+  font-size: 20px;
+  font-weight: bold;
+}
+.submit-success .txt {
+  font-size: 16px;
+}
+.notShow {
+  display: none;
 }
 @media (max-width: 768px) {
   #modal-success .modal-body {

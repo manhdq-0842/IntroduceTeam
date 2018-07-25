@@ -2,9 +2,10 @@ odoo.define('source_lead_website.contact_xml', function (require) {
     'use strict';
     var ajax = require('web.ajax');
     require("web.dom_ready");
+    var $body = $('body');
 
     //click collect form
-    $('body').off('click').on('click', '.contact-header', function () {
+    $body.off('click').on('click', '.contact-header', function () {
         var $formControl = $('#form_contact');
         var $close = $('.contact-close .fa');
         if ($formControl.hasClass('collect')) {
@@ -23,35 +24,56 @@ odoo.define('source_lead_website.contact_xml', function (require) {
 
     var $envelope;
     var $modalForm;
-    $('body').on('mouseenter', '.envelope', function () {
+    $body.on('mouseenter', '.envelope', function () {
         $envelope = $('.envelope');
         $envelope.removeClass('collect-envelope');
         $modalForm = $('#modal-form');
     });
-    $('body').on('mouseleave', '.envelope', function () {
+    $body.on('mouseleave', '.envelope', function () {
         $envelope.addClass('collect-envelope');
     });
 
-
-    $('body').on('click', '.envelope', function () {
-        console.log("click");
+    $body.on('click', '.envelope', function () {
         $modalForm.modal('toggle');
         $('.dark-screen').removeClass('hidden');
     });
-    $('body').on('click', '#close_modal', function () {
+    $body.on('click', '#close_modal', function () {
         $modalForm.modal('toggle');
         $('.dark-screen').addClass('hidden');
     });
+    $body.on('click', '.modal', function () {
+        $('.dark-screen').addClass('hidden');
+    });
+    $body.on('click', '.modal-dialog', function (e) {
+        e.stopPropagation();
+    });
+
 
     //form question ajax
-    $('body').on('click', '.contact-footer #btn_send', function () {
-        var name = $('.contact-body #contact_name').val();
-        var phone = $('.contact-body #contact_phone').val();
-        var address = $('.contact-body #contact_address').val();
-        var email = $('.contact-body #contact_email').val();
-        var question = $('.contact-body #contact_question').val();
+    $body.on('click', '.contact-footer #btn_send', function () {
+        var name = null, phone = 0, address = null, email = null, question = null;
+        var $name = $('.contact-body #contact_name');
+        var $phone = $('.contact-body #contact_phone');
+        var $email = $('.contact-body #contact_email');
+        var $address = $('.contact-body #contact_address');
+        var $question = $('.contact-body #contact_question');
+        if ($name.val()) {
+            name = $name.val();
+        }
+        if ($phone.val()) {
+            phone = $phone.val();
+        }
+        if ($address.val()) {
+            address = $address.val();
+        }
+        if ($email.val()) {
+            email = $email.val();
+        }
+        if ($question.val()) {
+            question = $question.val();
+        }
         var checkemail = checkEmailSource(email);
-        var checkphone = phonenumberSource(phone);
+        var checkphone = phoneNumberSource(phone);
         ajax.jsonRpc('/handling-form', 'call', {
             'kwargs': {
                 'name': name,
@@ -65,20 +87,26 @@ odoo.define('source_lead_website.contact_xml', function (require) {
         }).then(function (data) {
             if (data) {
                 if (data['emailerror']) {
-                    $(".contact-body #contact_email").addClass('error-question');
+                    $email.addClass('error-question');
                 } else {
-                    $(".contact-body #contact_email").removeClass('error-question');
+                    $email.removeClass('error-question');
                 }
                 if (data['phoneerror']) {
-                    $('.contact-body #contact_phone').addClass('error-question');
+                    $phone.addClass('error-question');
                 } else {
-                    $(".contact-body #contact_phone").removeClass('error-question');
+                    $phone.removeClass('error-question');
                 }
                 if (data['success']) {
+                    $('.row-form').addClass('hidden');
+                    $('.contact-footer').addClass('hidden');
+                    $('.submit-success').removeClass('hidden');
+                    $('#form_contact').css('bottom', '275px');
+
                     // turn off modal question turn on modal success
-                    var $modalSuccess = $('#form_vertical').find('#modal-success');
-                    $modalForm.modal('toggle');
-                    $modalSuccess.modal('toggle');
+                    if ($('#form_vertical').length > 0) {
+                        $('#form_vertical').find('#modal-success').modal('toggle');
+                        $modalForm.modal('toggle');
+                    }
                 }
             }
         });
@@ -93,8 +121,9 @@ function checkEmailSource(inputtxt) {
 }
 
 //check phone-number
-function phonenumberSource(inputtxt) {
+function phoneNumberSource(inputtxt) {
     var phonenu = /^([(]?)?([+]?)?([0-9]{1,2})?([)]?)?([0-9]{9,10})$/;
-    return !!inputtxt.match(phonenu);
+    return !!phonenu.test(inputtxt);
 }
+
 

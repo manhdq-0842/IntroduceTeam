@@ -1,10 +1,13 @@
-.label-position {
+.label-tab {
   font-size: 20px;
-  font-weight: bold;
+}
+.label-position {
+  font-size: 16px;
 }
 .choose-view ul {
   display: flex;
   margin-top: 10px;
+  margin-left: 15px;
 }
 .choose-view li {
   text-decoration: none;
@@ -57,7 +60,15 @@ input[type="color"]::-webkit-color-swatch {
 }
 .set-text-item input {
   margin-left: 20px;
-  width: 50% !important;
+  float: right;
+}
+.nav-tabs {
+  padding-top: 20px;
+}
+.title-preview {
+  padding: 35px 0 15px 0;
+  text-align: center;
+  font-weight: bold;
 }
 .preview {
   height: 250px;
@@ -95,7 +106,7 @@ input[type="color"]::-webkit-color-swatch {
 .position .container-form {
   position: absolute !important;
 }
-.modal-backdrop {
+.o_web_client .modal-backdrop {
   display: none!important;
 }
 #preview-screen .modal.fade .modal-dialog {

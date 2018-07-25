@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+  <t t-name="Menu.menu">
+    <t t-if="menu['children'].length">
+      <li class="dropdown-header"><t t-esc="menu.name"/></li>
+      <t t-foreach="menu['children']" t-as="child">
+          <t t-set="menu" t-value="child"/>
+          <li class="oinsight-menu-child" style="padding-left:10px">
+            <t t-call="Menu.menu_link" />
+          </li>
+      </t>
+    </t>
+    <t t-else="">
+        <t t-if="!menu['children'].length">
+          <li>
+            <t t-call="Menu.menu_link" />
+          </li>
+        </t>
+    </t>
+  </t>
+</templates>
