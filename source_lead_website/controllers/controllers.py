@@ -19,6 +19,7 @@ def get_show():
 
     txtHeader = request.env['ir.config_parameter'].sudo().get_param('email_config.txtHeader')
     txtBtn = request.env['ir.config_parameter'].sudo().get_param('email_config.txtBtn')
+    txtInform = request.env['ir.config_parameter'].sudo().get_param('email_config.txtInform')
     txtDescription = request.env['ir.config_parameter'].sudo().get_param('email_config.txtDescription')
     return {
         'showname': show_name,
@@ -34,6 +35,7 @@ def get_show():
         'position': position,
         'txtHeader': txtHeader,
         'txtBtn': txtBtn,
+        'txtInform': txtInform,
         'txtDescription': txtDescription,
     }
 
@@ -66,7 +68,7 @@ class ContactAjax(http.Controller):
                 phoneTrue = True
             else:
                 return {
-                    'phoneerror':1
+                    'phoneerror': 1
                 }
         else:
             phoneTrue = True
@@ -84,11 +86,16 @@ class ContactAjax(http.Controller):
 
 class PageAjax(http.Controller):
     @http.route('/contact-ajax', website=True, auth='public', type='json', methods=['POST'])
-    def create_question(self, position=None, **kw):
+    def create_question(self, position=None, txtDescription=None, **kw):
         val = get_show()
         if position is not None:
             val.update({
                 'position': position,
+            })
+
+        if txtDescription is not None:
+            val.update({
+                'txtDescription': txtDescription,
             })
 
         if val.get('position') == 'leftbottom':
@@ -111,5 +118,3 @@ class PageAjax(http.Controller):
                 'rightmid': True,
             })
             return request.env['ir.ui.view'].render_template('source_lead_website.contact_vertical', val)
-
-
