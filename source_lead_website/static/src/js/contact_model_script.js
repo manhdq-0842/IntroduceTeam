@@ -1,4 +1,7 @@
 $(document).ready(function () {
+    // set color
+    var $inputColor = $('input.input-color');
+    var $choseColor = $('input.chose-color-spectrum');
     $.ajax({
         url: '/contact-ajax',
         type: 'POST',
@@ -22,9 +25,13 @@ $(document).ready(function () {
     $('.sp-palette-buttons-disabled').remove();
 
     var checkIC = 0;
-    // set color
-    var $inputColor = $('input.input-color');
-    var $choseColor = $('input.chose-color-spectrum');
+    var txtDes = 0;
+    $inputColor.click(function () {
+        checkIC = 1;
+    });
+    $('#txtDescription').click(function () {
+        txtDes = 1;
+    });
 
     var val = {
         showInput: true,
@@ -54,10 +61,6 @@ $(document).ready(function () {
     };
 
     $choseColor.spectrum(val);
-
-    $inputColor.click(function () {
-        checkIC = 1;
-    });
 
     $inputColor.each(function () {
         val.color = $(this).val();
@@ -102,52 +105,48 @@ $(document).ready(function () {
         $('.btn .btn-apply').click();
         var chose = $(this).attr('name');
         $.ajax({
-        url: '/contact-ajax',
-        type: 'POST',
-        dataType: 'json',
-        contentType: 'application/json',
-        data: JSON.stringify({
-            'jsonrpc': "2.0",
-            'method': "call",
-            "params": {
-                'position': chose
+            url: '/contact-ajax',
+            type: 'POST',
+            dataType: 'json',
+            contentType: 'application/json',
+            data: JSON.stringify({
+                'jsonrpc': "2.0",
+                'method': "call",
+                "params": {
+                    'position': chose
+                }
+            }),
+            success: function (data) {
+                var content = data['result'];
+                $('.container-form').remove();
+                $('#form_vertical').remove();
+                $('#preview-screen').append(content);
+                $('.sheet-container').change()
+            },
+            error: function (e) {
+                alert('error');
+                console.log(e.message);
             }
-        }),
-        success: function (data) {
-            var content = data['result'];
-            $('.container-form').remove();
-            $('#form_vertical').remove();
-            $('#preview-screen').append(content);
-            $('.sheet-container').change()
-        },
-        error: function (e) {
-            alert('error');
-            console.log(e.message);
-        }
-    });
+        });
     });
 
     $('.sp-container').addClass('hidden');
 
-    //change live
+    //change live color
     $('.sheet-container').change(function () {
         var $btnSend = $('#btn_send');
         $('.contact-header p').text($('.txtHeader').val());
-
-        $btnSend.find('span').text($('.txtBtn').val());
-
+        $('.envelope .txtInform').text($('.txtInform').val());
         $('.my-color').css('color', $('.textColor').val());
-
         var backgroundColor = $('.backgroundColor').val();
         $('#form_contact').css('background-color', backgroundColor);
         $('.envelope').css('background-color', backgroundColor);
         $('.modal-dialog').css('background-color', backgroundColor);
-
+        $btnSend.find('span').text($('.txtBtn').val());
         $btnSend.css('background-color', $('.btnColor').val());
-
         $btnSend.find('span').css('color', $('.txtBtnColor').val());
-
     });
+    //change live display content
     $('body').on('click', '.tabShow input[type=checkbox]', function () {
         var name = $(this).parent().attr('name');
         var $isShow = $('.contact-body').find('.' + name);
@@ -157,14 +156,22 @@ $(document).ready(function () {
             $isShow.css('display', 'none');
         }
     });
+    // txtDescription change live
     $(document).mouseup(function (e) {
-        var $txtDescription = $('.sheet-container .txtDescription .note-editable p');
-        $txtDescription.each(function () {
-            val.color = $(this).val();
-            if ($(this).length > 0 && !$(this).is(e.target) && $(this).has(e.target).length === 0) {
-                var txtDescription = $txtDescription.text();
-                $('.contact-body .txtDescription').text(txtDescription);
-            }
-        });
+        if (txtDes) {
+        var container = $("#txtDescription");
+        if (!container.is(e.target) && container.has(e.target).length === 0) {
+            var btnTxtDes = $('.note-view button');
+            btnTxtDes.click();
+            var tex = $('.note-editor.codeview .note-editing-area .note-codable').val();
+            btnTxtDes.click();
+            $('.contact-body .isShowDescription span p').remove();
+            $('.contact-body .isShowDescription span').append(tex);
+        }
+            txtDes = 0;
+        }
     });
+
 });
+
+

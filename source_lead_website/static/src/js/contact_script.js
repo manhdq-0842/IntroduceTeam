@@ -26,11 +26,15 @@ odoo.define('source_lead_website.contact_xml', function (require) {
     var $modalForm;
     $body.on('mouseenter', '.envelope', function () {
         $envelope = $('.envelope');
+        $('.envelope.left').css('left',0);
+        $('.envelope.right').css('right',0);
         $envelope.removeClass('collect-envelope');
         $modalForm = $('#modal-form');
     });
     $body.on('mouseleave', '.envelope', function () {
         $envelope.addClass('collect-envelope');
+        $('.collect-envelope.left').css('left', 46 - $envelope.width());
+        $('.collect-envelope.right').css('right', 46 - $envelope.width());
     });
 
     $body.on('click', '.envelope', function () {
@@ -97,11 +101,10 @@ odoo.define('source_lead_website.contact_xml', function (require) {
                     $phone.removeClass('error-question');
                 }
                 if (data['success']) {
-                    $('.row-form').addClass('hidden');
-                    $('.contact-footer').addClass('hidden');
+                    $('#form_contact .row-form').addClass('hidden');
+                    $('#form_contact .contact-footer').addClass('hidden');
                     $('.submit-success').removeClass('hidden');
                     $('#form_contact').css('bottom', '275px');
-
                     // turn off modal question turn on modal success
                     if ($('#form_vertical').length > 0) {
                         $('#form_vertical').find('#modal-success').modal('toggle');

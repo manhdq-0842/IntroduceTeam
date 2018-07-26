@@ -170,6 +170,10 @@
                                                         <field name="txtBtn" class="txtBtn"/>
                                                     </div>
                                                     <div class="set-text-item col-md-12">
+                                                        <span class="title-color">Text Information</span>
+                                                        <field name="txtInform" class="txtInform"/>
+                                                    </div>
+                                                    <div class="set-text-item col-md-12" id="txtDescription">
                                                         <span class="title-color">Text Description</span>
                                                         <field name="txtDescription" widget="html"
                                                                class="txtDescription"/>

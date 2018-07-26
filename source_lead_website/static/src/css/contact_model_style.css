@@ -1,3 +1,20 @@
+@import '/source_lead_website/static/src/css/font.css';
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  font-family: gsc, inherit, sans-serif;
+}
+.tab-content.nav-tabs {
+  border: none;
+}
 .label-tab {
   font-size: 20px;
 }
@@ -82,8 +99,8 @@ input[type="color"]::-webkit-color-swatch {
   transform: scale(0.5);
   transform-origin: 0 0 0;
   overflow: hidden;
-  height: 700px;
-  width: 800px;
+  height: 699px;
+  width: 799px;
   margin-right: -50%;
   border: 1px solid #666666;
   background: url("/source_lead_website/static/src/img/docx.png") no-repeat;

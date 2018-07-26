@@ -4,7 +4,7 @@
         <span class="my-color hidden" t-att-color="textColor"/>
         <div class="container-form" t-att-style="'%s' % ('right:50px;' if not leftbottom else 'left:50px') ">
             <div id="form_contact" class="collect"
-                 t-att-style="'background-color: %s' % (backgroundColor) ">
+                 t-att-style="'background-color: %s' % (backgroundColor)">
                 <div class="contact-header">
                     <p class="title my-color">
                         <t t-esc="txtHeader"/>
@@ -16,9 +16,9 @@
                 <div class="contact-body">
                     <div t-att-class="'row-form isShowDescription %s' %('' if showdescription else 'notShow')"
                          style="margin: 15px 0;">
-                        <span class="name txtDescription my-color">
-                            <t t-raw="txtDescription"/>
-                        </span>
+                         <span class="name txtDescription my-color">
+                                <t t-raw="txtDescription"/>
+                         </span>
                     </div>
                     <div t-att-class="'row-form isShowName %s' %('' if showname else 'notShow')">
                         <div class="name my-color">
@@ -90,22 +90,21 @@
             </div>
         </div>
         <script type="text/javascript" src="source_lead_website/static/src/js/change_script.js"/>
-
     </template>
 
     <template id="contact_vertical" name="Contact Us">
         <span class="my-color hidden" t-att-color="textColor"/>
         <div id="form_vertical" class="collect">
-            <div t-if="leftmid" class="envelope left collect-envelope"
+            <div t-if="leftmid" class="envelope left collect-envelope begin"
                  t-att-style="'background-color: %s;' % (backgroundColor)">
-                <span>Sent to email</span>
-                <i class="fa fa-envelope-o" aria-hidden="true"/>
+                <span class="txtInform"><t t-esc="txtInform"/></span>
+                <span class="icon-contact"/>
             </div>
 
-            <div t-else="" class="envelope right collect-envelope"
+            <div t-else="" class="envelope right collect-envelope begin"
                  t-att-style="'background-color: %s;right:0;' % (backgroundColor)">
-                <i class="fa fa-envelope-o" aria-hidden="true"/>
-                <span>Sent to email</span>
+                <span class="icon-contact"/>
+                <span class="txtInform"><t t-esc="txtInform"/></span>
             </div>
 
             <!--modal email-->
@@ -116,13 +115,11 @@
                         <p class="title my-color">
                             <t t-esc="txtHeader"/>
                         </p>
-                        <span id="close_modal">
-                            <i class="fa fa-times-circle-o" aria-hidden="true"/>
-                        </span>
+                        <span id="close_modal"/>
                     </div>
                     <div class="contact-body">
                         <div t-att-class="'row-form isShowDescription %s' %('' if showdescription else 'notShow')"
-                             style="margin: 15px 0;">
+                             style="margin:0 0 10px 0;">
                             <span class="name txtDescription my-color">
                                 <t t-raw="txtDescription"/>
                             </span>
@@ -195,7 +192,7 @@
                 <div class="modal-dialog">
                     <!-- Modal content-->
                     <div class="modal-body"
-                         t-att-style="'background-color: %s;border-radius: 8px;' % (backgroundColor)">
+                         t-att-style="'background-color: %s;border-radius: 4px;' % (backgroundColor)">
                         <h3 class="my-color">Thanks your question!</h3>
                     </div>
                 </div>
