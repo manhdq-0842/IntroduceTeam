@@ -16,9 +16,9 @@
                 <div class="contact-body">
                     <div t-att-class="'row-form isShowDescription %s' %('' if showdescription else 'notShow')"
                          style="margin: 15px 0;">
-                         <span class="name txtDescription my-color">
-                                <t t-raw="txtDescription"/>
-                         </span>
+                        <span class="name txtDescription my-color">
+                            <t t-raw="txtDescription"/>
+                        </span>
                     </div>
                     <div t-att-class="'row-form isShowName %s' %('' if showname else 'notShow')">
                         <div class="name my-color">
@@ -64,9 +64,9 @@
                         </div>
                     </div>
                     <div class="submit-success hidden">
-                        <div class="name my-color">
-                            <p class="title">Thank you!</p>
-                            <span class="txt">We have write your question.</span>
+                        <div class="name my-color success-label">
+                            <p class="title txtSuccessTitle"><t t-esc="txtSuccessTitle"/></p>
+                            <span class="txt txtSuccess"><t t-esc="txtSuccess"/></span>
                         </div>
                     </div>
                 </div>
@@ -97,14 +97,18 @@
         <div id="form_vertical" class="collect">
             <div t-if="leftmid" class="envelope left collect-envelope begin"
                  t-att-style="'background-color: %s;' % (backgroundColor)">
-                <span class="txtInform"><t t-esc="txtInform"/></span>
+                <span class="txtInform">
+                    <t t-esc="txtInform"/>
+                </span>
                 <span class="icon-contact"/>
             </div>
 
-            <div t-else="" class="envelope right collect-envelope begin"
+            <div t-else="" class="envelope right collect-envelope beginf"
                  t-att-style="'background-color: %s;right:0;' % (backgroundColor)">
                 <span class="icon-contact"/>
-                <span class="txtInform"><t t-esc="txtInform"/></span>
+                <span class="txtInform">
+                    <t t-esc="txtInform"/>
+                </span>
             </div>
 
             <!--modal email-->
@@ -193,7 +197,18 @@
                     <!-- Modal content-->
                     <div class="modal-body"
                          t-att-style="'background-color: %s;border-radius: 4px;' % (backgroundColor)">
-                        <h3 class="my-color">Thanks your question!</h3>
+                        <div class="success-label">
+                            <p class="my-color title txtSuccessTitle"><t t-esc="txtSuccessTitle"/></p>
+                            <p class="my-color txt txtSuccess"><t t-esc="txtSuccess"/></p>
+                        </div>
+                    </div>
+                     <div class="by-team width-team">
+                        <a href="http://odooinsight.info/" target="_blank">
+                            <div class="background-team"/>
+                            <div>
+                                <span class="by-team-txt my-color">Powered by OIsight</span>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>

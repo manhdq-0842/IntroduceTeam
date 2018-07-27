@@ -20,6 +20,8 @@ def get_show():
     txtHeader = request.env['ir.config_parameter'].sudo().get_param('email_config.txtHeader')
     txtBtn = request.env['ir.config_parameter'].sudo().get_param('email_config.txtBtn')
     txtInform = request.env['ir.config_parameter'].sudo().get_param('email_config.txtInform')
+    txtSuccessTitle = request.env['ir.config_parameter'].sudo().get_param('email_config.txtSuccessTitle')
+    txtSuccess = request.env['ir.config_parameter'].sudo().get_param('email_config.txtSuccess')
     txtDescription = request.env['ir.config_parameter'].sudo().get_param('email_config.txtDescription')
     return {
         'showname': show_name,
@@ -36,6 +38,8 @@ def get_show():
         'txtHeader': txtHeader,
         'txtBtn': txtBtn,
         'txtInform': txtInform,
+        'txtSuccessTitle': txtSuccessTitle,
+        'txtSuccess': txtSuccess,
         'txtDescription': txtDescription,
     }
 
@@ -86,16 +90,11 @@ class ContactAjax(http.Controller):
 
 class PageAjax(http.Controller):
     @http.route('/contact-ajax', website=True, auth='public', type='json', methods=['POST'])
-    def create_question(self, position=None, txtDescription=None, **kw):
+    def create_question(self, position=None, **kw):
         val = get_show()
         if position is not None:
             val.update({
                 'position': position,
-            })
-
-        if txtDescription is not None:
-            val.update({
-                'txtDescription': txtDescription,
             })
 
         if val.get('position') == 'leftbottom':

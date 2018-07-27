@@ -53,6 +53,8 @@ class EmaiConfig(models.TransientModel):
     txtHeader = fields.Char(string="Text Header", default="Contact Us")
     txtBtn = fields.Char(string="Text Button", default="Submit")
     txtInform = fields.Char(string="Text Inform", default="Send to email")
+    txtSuccessTitle = fields.Char(string="Text Success Title", default="Thank you!")
+    txtSuccess = fields.Char(string="Text Success", default="We have write your question.")
     txtDescription = fields.Text(string="Text Description", default="Submit")
 
     @api.model
@@ -78,6 +80,8 @@ class EmaiConfig(models.TransientModel):
             txtHeader=(self.env['ir.config_parameter'].sudo().get_param('email_config.txtHeader', default="Contact Us")),
             txtBtn=(self.env['ir.config_parameter'].sudo().get_param('email_config.txtBtn', default="Submit")),
             txtInform=(self.env['ir.config_parameter'].sudo().get_param('email_config.txtInform', default="Submit")),
+            txtSuccessTitle=(self.env['ir.config_parameter'].sudo().get_param('email_config.txtSuccessTitle', default="")),
+            txtSuccess=(self.env['ir.config_parameter'].sudo().get_param('email_config.txtSuccess', default="")),
             txtDescription=(self.env['ir.config_parameter'].sudo().get_param('email_config.txtDescription', default="")),
 
         )
@@ -112,4 +116,6 @@ class EmaiConfig(models.TransientModel):
         self.env['ir.config_parameter'].sudo().set_param('email_config.txtHeader', self.txtHeader)
         self.env['ir.config_parameter'].sudo().set_param('email_config.txtBtn', self.txtBtn)
         self.env['ir.config_parameter'].sudo().set_param('email_config.txtInform', self.txtInform)
+        self.env['ir.config_parameter'].sudo().set_param('email_config.txtSuccessTitle', self.txtSuccessTitle)
+        self.env['ir.config_parameter'].sudo().set_param('email_config.txtSuccess', self.txtSuccess)
         self.env['ir.config_parameter'].sudo().set_param('email_config.txtDescription', self.txtDescription)

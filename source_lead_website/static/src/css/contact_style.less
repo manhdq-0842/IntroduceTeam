@@ -297,21 +297,26 @@
 }
 
 #form_vertical #modal-success {
-  .modal-body h3 {
-    text-align: center;
-    color: #ffffff;
-    font-size: 24px;
-    font-weight: bold;
-  }
   .modal-body {
-    background-color: red;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
+    background-color: red;
     height: 200px;
+    border-radius: 4px;
   }
   .modal-header, .modal-footer {
     display: none;
+  }
+  p.title{
+    text-align: left;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  p.txt{
+    text-align: left;
+    font-size: 14px;
+    margin: 20px 0;
   }
 }
 
@@ -331,7 +336,7 @@
     text-align: center;
   }
   div {
-    margin-top: -31px;
+    margin-top: -33px;
   }
   .by-team-txt {
     font-size: 11px;
@@ -360,7 +365,6 @@
 .submit-success {
   display: flex;
   height: 200px;
-  justify-content: center;
   align-items: center;
   .title {
     font-size: 20px;

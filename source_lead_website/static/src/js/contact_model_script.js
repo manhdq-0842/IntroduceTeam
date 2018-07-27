@@ -137,14 +137,20 @@ $(document).ready(function () {
         var $btnSend = $('#btn_send');
         $('.contact-header p').text($('.txtHeader').val());
         $('.envelope .txtInform').text($('.txtInform').val());
+        $('.success-label .txtSuccessTitle').text($('.txtSuccessTitle').val());
+        $('.success-label .txtSuccess').text($('.txtSuccess').val());
         $('.my-color').css('color', $('.textColor').val());
         var backgroundColor = $('.backgroundColor').val();
         $('#form_contact').css('background-color', backgroundColor);
-        $('.envelope').css('background-color', backgroundColor);
         $('.modal-dialog').css('background-color', backgroundColor);
         $btnSend.find('span').text($('.txtBtn').val());
         $btnSend.css('background-color', $('.btnColor').val());
         $btnSend.find('span').css('color', $('.txtBtnColor').val());
+        var $envelope = $('.envelope');
+        $envelope.css('background-color', backgroundColor);
+
+        $('.collect-envelope.left').css('left', 46 - $envelope.width());
+        $('.collect-envelope.right').css('right', 46 - $envelope.width());
     });
     //change live display content
     $('body').on('click', '.tabShow input[type=checkbox]', function () {
@@ -155,19 +161,18 @@ $(document).ready(function () {
         } else {
             $isShow.css('display', 'none');
         }
+        var $formControl = $('#form_contact');
+        $formControl.css('bottom', $formControl.height() - 32);
     });
     // txtDescription change live
     $(document).mouseup(function (e) {
         if (txtDes) {
-        var container = $("#txtDescription");
-        if (!container.is(e.target) && container.has(e.target).length === 0) {
-            var btnTxtDes = $('.note-view button');
-            btnTxtDes.click();
-            var tex = $('.note-editor.codeview .note-editing-area .note-codable').val();
-            btnTxtDes.click();
-            $('.contact-body .isShowDescription span p').remove();
-            $('.contact-body .isShowDescription span').append(tex);
-        }
+            var $container = $("#txtDescription");
+            if (!$container.is(e.target) && $container.has(e.target).length === 0) {
+                var tex = $container.find('.note-editable').html();
+                $('.contact-body .isShowDescription span p').remove();
+                $('.contact-body .isShowDescription span').append(tex);
+            }
             txtDes = 0;
         }
     });
