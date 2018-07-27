@@ -269,22 +269,27 @@
   font-size: 20px;
   color: #e4e4e4;
 }
-#form_vertical #modal-success .modal-body h3 {
-  text-align: center;
-  color: #ffffff;
-  font-size: 24px;
-  font-weight: bold;
-}
 #form_vertical #modal-success .modal-body {
-  background-color: red;
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
+  background-color: red;
   height: 200px;
+  border-radius: 4px;
 }
 #form_vertical #modal-success .modal-header,
 #form_vertical #modal-success .modal-footer {
   display: none;
+}
+#form_vertical #modal-success p.title {
+  text-align: left;
+  font-size: 24px;
+  font-weight: bold;
+}
+#form_vertical #modal-success p.txt {
+  text-align: left;
+  font-size: 14px;
+  margin: 20px 0;
 }
 .by-team {
   height: 40px;
@@ -303,7 +308,7 @@
   text-align: center;
 }
 .by-team div {
-  margin-top: -31px;
+  margin-top: -33px;
 }
 .by-team .by-team-txt {
   font-size: 11px;

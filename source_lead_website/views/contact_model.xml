@@ -173,6 +173,14 @@
                                                         <span class="title-color">Text Information</span>
                                                         <field name="txtInform" class="txtInform"/>
                                                     </div>
+                                                    <div class="set-text-item col-md-12">
+                                                        <span class="title-color">Text Success Title</span>
+                                                        <field name="txtSuccessTitle" class="txtSuccessTitle"/>
+                                                    </div>
+                                                    <div class="set-text-item col-md-12">
+                                                        <span class="title-color">Text Success</span>
+                                                        <field name="txtSuccess" class="txtSuccess"/>
+                                                    </div>
                                                     <div class="set-text-item col-md-12" id="txtDescription">
                                                         <span class="title-color">Text Description</span>
                                                         <field name="txtDescription" widget="html"

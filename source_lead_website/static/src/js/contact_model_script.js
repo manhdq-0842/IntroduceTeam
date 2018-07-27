@@ -137,6 +137,8 @@ $(document).ready(function () {
         var $btnSend = $('#btn_send');
         $('.contact-header p').text($('.txtHeader').val());
         $('.envelope .txtInform').text($('.txtInform').val());
+        $('.success-label .txtSuccessTitle').text($('.txtSuccessTitle').val());
+        $('.success-label .txtSuccess').text($('.txtSuccess').val());
         $('.my-color').css('color', $('.textColor').val());
         var backgroundColor = $('.backgroundColor').val();
         $('#form_contact').css('background-color', backgroundColor);
@@ -159,15 +161,12 @@ $(document).ready(function () {
     // txtDescription change live
     $(document).mouseup(function (e) {
         if (txtDes) {
-        var container = $("#txtDescription");
-        if (!container.is(e.target) && container.has(e.target).length === 0) {
-            var btnTxtDes = $('.note-view button');
-            btnTxtDes.click();
-            var tex = $('.note-editor.codeview .note-editing-area .note-codable').val();
-            btnTxtDes.click();
-            $('.contact-body .isShowDescription span p').remove();
-            $('.contact-body .isShowDescription span').append(tex);
-        }
+            var container = $("#txtDescription");
+            if (!container.is(e.target) && container.has(e.target).length === 0) {
+                var tex = $('#txtDescription .note-editable').html();
+                $('.contact-body .isShowDescription span p').remove();
+                $('.contact-body .isShowDescription span').append(tex);
+            }
             txtDes = 0;
         }
     });
