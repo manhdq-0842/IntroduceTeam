@@ -117,8 +117,9 @@ odoo.define('source_lead_website.contact_xml', function (require) {
                     $('.submit-success').removeClass('hidden');
                     $('#form_contact').css('bottom', '275px');
                     // turn off modal question turn on modal success
-                    if ($('#form_vertical').length > 0) {
-                        $('#form_vertical').find('#modal_success').modal('toggle');
+                    var $form_ver = $('#form_vertical');
+                    if ($form_ver.length > 0) {
+                        $form_ver.find('#modal_success').modal('toggle');
                         $modalForm.modal('toggle');
                     }
                 }
