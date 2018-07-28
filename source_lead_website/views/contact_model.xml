@@ -68,7 +68,7 @@
                     <xpath expr="//button[@name='action_cancel']" position="replace">
                     </xpath>
                     <header>
-                        <button style="margin-top: 40px; margin-bottom: 40px;" string="Apply" type="object"
+                        <button style="margin: 20px 0;" string="Apply" type="object"
                                 name="set_values" class="oe_highlight btn-apply"/>
                     </header>
                     <sheet>
@@ -115,12 +115,14 @@
                                                             <div class="color-item">
                                                                 <span class="title-color">Background Color:</span>
                                                                 <input type='text' class="chose-color-spectrum"/>
-                                                                <field class="input-color backgroundColor" name="backgroundColor"/>
+                                                                <field class="input-color backgroundColor"
+                                                                       name="backgroundColor"/>
                                                             </div>
                                                             <div class="color-item">
                                                                 <span class="title-color">Text Color:</span>
                                                                 <input type='text' class="chose-color-spectrum"/>
-                                                                <field class="input-color col-md-6 textColor" name="textColor"/>
+                                                                <field class="input-color col-md-6 textColor"
+                                                                       name="textColor"/>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-12">
@@ -132,7 +134,8 @@
                                                             <div class="color-item">
                                                                 <span class="title-color">Text Button Color:</span>
                                                                 <input type='text' class="chose-color-spectrum"/>
-                                                                <field class="input-color txtBtnColor" name="txtBtnColor"/>
+                                                                <field class="input-color txtBtnColor"
+                                                                       name="txtBtnColor"/>
                                                             </div>
                                                         </div>
                                                         <script src='/source_lead_website/static/src/js/spectrum.js'/>
@@ -140,48 +143,46 @@
                                                 </div>
                                             </page>
                                             <page string="Content" class="label-tab tab2">
-                                                <div class="col-md-12" style="display:flex">
-                                                    <div class="col-md-12 tabShow">
-                                                        <group>
-                                                            <field name="isShowName"/>
-                                                            <field name="isShowDescription"/>
-                                                            <field name="isShowAddress"/>
-                                                            <field name="isShowQuestion"/>
-                                                            <field name="isShowEmail"/>
-                                                            <field name="isShowPhone"/>
-                                                        </group>
-                                                        <group>
-                                                            <field name="isCheckEmail"
-                                                                   attrs="{'invisible': [('isShowEmail', '!=', True)]}"/>
-                                                            <field name="isCheckPhone"
-                                                                   attrs="{'invisible': [('isShowPhone', '!=', True)]}"/>
-                                                        </group>
-                                                    </div>
+                                                <div class="tabShow" style="display:flex">
+                                                    <group>
+                                                        <field name="isShowName"/>
+                                                        <field name="isShowEmail"/>
+                                                        <field name="isShowPhone"/>
+                                                        <field name="isShowDescription"/>
+                                                        <field name="isShowAddress"/>
+                                                        <field name="isShowQuestion"/>
+                                                    </group>
+                                                    <group>
+                                                        <field name="isCheckEmail"
+                                                               attrs="{'invisible': [('isShowEmail', '!=', True)]}"/>
+                                                        <field name="isCheckPhone"
+                                                               attrs="{'invisible': [('isShowPhone', '!=', True)]}"/>
+                                                    </group>
                                                 </div>
                                             </page>
                                             <page string="Text" class="label-tab">
-                                                <div class="col-md-12 set-text">
-                                                    <div class="set-text-item col-md-12">
+                                                <div class="set-text">
+                                                    <div class="set-text-item">
                                                         <span class="title-color">Text Header</span>
                                                         <field name="txtHeader" class="txtHeader"/>
                                                     </div>
-                                                    <div class="set-text-item col-md-12">
+                                                    <div class="set-text-item">
                                                         <span class="title-color">Text Button</span>
                                                         <field name="txtBtn" class="txtBtn"/>
                                                     </div>
-                                                    <div class="set-text-item col-md-12">
+                                                    <div class="set-text-item">
                                                         <span class="title-color">Text Information</span>
                                                         <field name="txtInform" class="txtInform"/>
                                                     </div>
-                                                    <div class="set-text-item col-md-12">
+                                                    <div class="set-text-item">
                                                         <span class="title-color">Text Success Title</span>
                                                         <field name="txtSuccessTitle" class="txtSuccessTitle"/>
                                                     </div>
-                                                    <div class="set-text-item col-md-12">
+                                                    <div class="set-text-item">
                                                         <span class="title-color">Text Success</span>
                                                         <field name="txtSuccess" class="txtSuccess"/>
                                                     </div>
-                                                    <div class="set-text-item col-md-12" id="txtDescription">
+                                                    <div class="set-text-item" id="txtDescription">
                                                         <span class="title-color">Text Description</span>
                                                         <field name="txtDescription" widget="html"
                                                                class="txtDescription"/>

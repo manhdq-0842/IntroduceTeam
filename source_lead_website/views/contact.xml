@@ -9,13 +9,13 @@
                     <p class="title my-color">
                         <t t-esc="txtHeader"/>
                     </p>
-                    <span id="contact-close" class="contact-close">
+                    <span id="contact-close" class="contact-close my-color">
                         <i class="fa fa-angle-up" aria-hidden="true"/>
                     </span>
                 </div>
                 <div class="contact-body">
                     <div t-att-class="'row-form isShowDescription %s' %('' if showdescription else 'notShow')"
-                         style="margin: 15px 0;">
+                         style="margin: 0 0 15px 0;">
                         <span class="name txtDescription my-color">
                             <t t-raw="txtDescription"/>
                         </span>
@@ -95,7 +95,7 @@
     <template id="contact_vertical" name="Contact Us">
         <span class="my-color hidden" t-att-color="textColor"/>
         <div id="form_vertical" class="collect">
-            <div t-if="leftmid" class="envelope left collect-envelope begin"
+            <div t-if="leftmid" class="envelope left collect-envelope begin my-color"
                  t-att-style="'background-color: %s;' % (backgroundColor)">
                 <span class="txtInform">
                     <t t-esc="txtInform"/>
@@ -103,7 +103,7 @@
                 <span class="icon-contact"/>
             </div>
 
-            <div t-else="" class="envelope right collect-envelope beginf"
+            <div t-else="" class="envelope right collect-envelope begin my-color"
                  t-att-style="'background-color: %s;right:0;' % (backgroundColor)">
                 <span class="icon-contact"/>
                 <span class="txtInform">
@@ -192,7 +192,7 @@
             </div>
 
             <!--modal success-->
-            <div class="modal fade modal-success" id="modal-success" role="dialog">
+            <div class="modal fade modal-success contact-modal" id="modal-success" role="dialog">
                 <div class="modal-dialog">
                     <!-- Modal content-->
                     <div class="modal-body"

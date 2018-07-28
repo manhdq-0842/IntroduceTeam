@@ -26,8 +26,8 @@ odoo.define('source_lead_website.contact_xml', function (require) {
     var $modalForm;
     $body.on('mouseenter', '.envelope', function () {
         $envelope = $('.envelope');
-        $('.envelope.left').css('left',0);
-        $('.envelope.right').css('right',0);
+        $('.envelope.left').css('left', 0);
+        $('.envelope.right').css('right', 0);
         $envelope.removeClass('collect-envelope');
         $modalForm = $('#modal-form');
     });
@@ -78,6 +78,8 @@ odoo.define('source_lead_website.contact_xml', function (require) {
         }
         var checkemail = checkEmailSource(email);
         var checkphone = phoneNumberSource(phone);
+        $email.removeClass('error-question');
+        $phone.removeClass('error-question');
         ajax.jsonRpc('/handling-form', 'call', {
             'kwargs': {
                 'name': name,
