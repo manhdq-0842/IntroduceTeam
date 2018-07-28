@@ -292,7 +292,7 @@
 .contact-close .fa {
   font-size: 20px;
 }
-#form_vertical #modal-success .modal-body {
+#form_vertical #modal_success .modal-body {
   display: flex;
   justify-content: left;
   align-items: center;
@@ -300,16 +300,16 @@
   height: 200px;
   border-radius: 4px;
 }
-#form_vertical #modal-success .modal-header,
-#form_vertical #modal-success .modal-footer {
+#form_vertical #modal_success .modal-header,
+#form_vertical #modal_success .modal-footer {
   display: none;
 }
-#form_vertical #modal-success p.title {
+#form_vertical #modal_success p.title {
   text-align: left;
   font-size: 24px;
   font-weight: bold;
 }
-#form_vertical #modal-success p.txt {
+#form_vertical #modal_success p.txt {
   text-align: left;
   font-size: 14px;
   margin: 5px 0;
@@ -372,7 +372,7 @@
   display: none;
 }
 @media (max-width: 768px) {
-  #modal-success .modal-body {
+  #modal_success .modal-body {
     height: 100px;
   }
   .width-icon {

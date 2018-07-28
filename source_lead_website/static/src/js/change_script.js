@@ -8,7 +8,7 @@ $(document).ready(function () {
     $envelope.removeClass('begin');
 
     //submit by enter
-    $('.contact-body input').bind('keypress', function (event) {
+    $('.contact-body textarea').bind('keypress', function (event) {
         if (event.which === 13) {
             $('.contact-footer #btn_send').click();
         }
@@ -17,7 +17,7 @@ $(document).ready(function () {
     //close by enter
     $('body').bind('keypress', function (event) {
         if (event.which === 13) {
-            if($('.contact-modal').css('display') === 'block'){
+            if ($('.modal-success.contact-modal').css('display') === 'block') {
                 $('.modal').click();
                 $('.modal-backdrop').click();
             }

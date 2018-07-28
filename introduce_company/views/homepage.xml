@@ -613,7 +613,7 @@
                 </div>
 
                 <!--modal question success-->
-                <div class="modal fade modal-success" id="modal-success" role="dialog">
+                <div class="modal fade modal-success" id="modal_success" role="dialog">
                     <div class="modal-dialog">
                         <!-- Modal content-->
                         <div class="modal-content">
