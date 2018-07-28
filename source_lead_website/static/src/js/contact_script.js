@@ -26,10 +26,10 @@ odoo.define('source_lead_website.contact_xml', function (require) {
     var $modalForm;
     $body.on('mouseenter', '.envelope', function () {
         $envelope = $('.envelope');
-        $('.envelope.left').css('left',0);
-        $('.envelope.right').css('right',0);
+        $('.envelope.left').css('left', 0);
+        $('.envelope.right').css('right', 0);
         $envelope.removeClass('collect-envelope');
-        $modalForm = $('#modal-form');
+        $modalForm = $('#modal_form');
     });
     $body.on('mouseleave', '.envelope', function () {
         $envelope.addClass('collect-envelope');
@@ -37,9 +37,18 @@ odoo.define('source_lead_website.contact_xml', function (require) {
         $('.collect-envelope.right').css('right', 46 - $envelope.width());
     });
 
+    //click show form and focus input
     $body.on('click', '.envelope', function () {
         $modalForm.modal('toggle');
         $('.dark-screen').removeClass('hidden');
+        var isFirstInput = true;
+        $('.modal-form.contact-form').find('input').each(function () {
+            $(this).removeAttr('autofocus');
+            if ($(this).parent().css('display') === 'block' && isFirstInput) {
+                isFirstInput = false;
+                $(this).attr('autofocus','autofocus');
+            }
+        });
     });
     $body.on('click', '#close_modal', function () {
         $modalForm.modal('toggle');
@@ -78,6 +87,8 @@ odoo.define('source_lead_website.contact_xml', function (require) {
         }
         var checkemail = checkEmailSource(email);
         var checkphone = phoneNumberSource(phone);
+        $email.removeClass('error-question');
+        $phone.removeClass('error-question');
         ajax.jsonRpc('/handling-form', 'call', {
             'kwargs': {
                 'name': name,
@@ -107,7 +118,7 @@ odoo.define('source_lead_website.contact_xml', function (require) {
                     $('#form_contact').css('bottom', '275px');
                     // turn off modal question turn on modal success
                     if ($('#form_vertical').length > 0) {
-                        $('#form_vertical').find('#modal-success').modal('toggle');
+                        $('#form_vertical').find('#modal_success').modal('toggle');
                         $modalForm.modal('toggle');
                     }
                 }

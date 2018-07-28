@@ -120,7 +120,7 @@ table td {
 .modal-question .footer-modal button.close {
     margin-right: 15px!important;
 }
-#modal-success .modal-body h3{
+#modal_success .modal-body h3{
     text-align: center;
     color: #388E3C;
 }

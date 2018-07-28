@@ -99,7 +99,7 @@ odoo.define("introduce_company.homepage", function (require) {
                     'name': name,
                     'phone': phone,
                     'email': email,
-                    'question': question,
+                    'question': question
                 }
             }).then(function (data) {
                 if (data['success']) {
